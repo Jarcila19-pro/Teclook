@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="theme-color" content="#FF5C1A" />
+  <meta name="msapplication-TileColor" content="#0a0e16" />
+
+  <script src="./assets/js/scripts.js" defer></script>
+
+  <!-- Service Worker Registration -->
+  <script defer>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="./assets/js/tailwind-config.js"></script>
+
+  <!-- SEO PRIMARIO-->
+  <title>Agencia de Marketing Digital en Manizales | Desarrollo Web y SEO - TECLOOK</title>
+  <meta name="description" content="Agencia de marketing digital en Manizales especializada en desarrollo web, SEO e inteligencia artificial. Aumenta tus ventas con TECLOOK.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://teclook.pro/" />
+
+  <!-- 
+       OPEN GRAPH — previews en WhatsApp, LinkedIn, Instagram, Facebook
+       Usa tu imagen de marca (1200×630 px) en assets/img/og-image.jpg
+  -->
+
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="https://teclook.pro/" />
+  <meta property="og:title"        content="Agencia de Marketing Digital en Manizales | TECLOOK" />
+  <meta property="og:description"  content="Sistema Market-Tech de alto rendimiento. Ingeniería de marca, IA y diseño estratégico para escalabilidad. Manizales, Colombia." />
+  <meta property="og:image"        content="https://teclook.pro/assets/img/logoteclook.png" />
+  <meta property="og:image:width"  content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:locale"       content="es_CO" />
+  <meta property="og:site_name"    content="TECLOOK" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Agencia de Marketing Digital y Software en Manizales | TECLOOK" />
+  <meta name="twitter:description" content="Sistema Market-Tech de alto rendimiento. Ingeniería de marca, IA y diseño estratégico para escalabilidad." />
+  <meta name="twitter:image"       content="https://teclook.pro/assets/img/logoteclook.png" />
+
+  <!-- 
+       SCHEMA.ORG — Rich Snippets Google (LocalBusiness + Website)
+   -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://teclook.pro/#organization",
+        "name": "TECLOOK",
+        "description": "Agencia de marketing digital en Manizales especializada en desarrollo web, SEO e inteligencia artificial.",
+        "url": "https://teclook.pro/",
+        "logo": "https://teclook.pro/assets/img/logoteclook.png",
+        "image": "https://teclook.pro/assets/img/logoteclook.png",
+        "telephone": "+573156090975",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Manizales",
+          "addressRegion": "Caldas",
+          "addressCountry": "CO"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 5.0703,
+          "longitude": -75.5138
+        },
+        "areaServed": { "@type": "City", "name": "Manizales" },
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "sameAs": ["https://wa.me/573156090975"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://teclook.pro/#website",
+        "url": "https://teclook.pro/",
+        "name": "TECLOOK",
+        "publisher": { "@id": "https://teclook.pro/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 
+       PRECONNECT — reduce latencia de Google Fonts
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+  <!-- 
+       FUENTES — reducidas de 8 a 5 variantes de peso (≈ 40% menos descarga)
+    -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN (misma versión que el original) -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/img/logoteclook.png" type="image/png" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="./assets/css/styles.min.css" />
+
+  <!-- 
+       PRELOAD imagen hero (mejora LCP)
+ -->
+  <link rel="preload" as="image" href="assets/img/bg-mz-caldas.webp" />
+
+  <!-- Google Analytics - REEMPLAZA TU_ID_ANALYTICS con tu ID real de Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=TU_ID_ANALYTICS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'TU_ID_ANALYTICS');
+  </script> -->
+</head>
+
+<body class="bg-surface selection:bg-electric-orange selection:text-white">
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-electric-orange text-white px-4 py-2 rounded z-50">
+    Saltar al contenido principal
+  </a>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-[100] bg-navy-deep/60 backdrop-blur-2xl border-b border-white/5" role="navigation" aria-label="Navegación principal">
+    <div class="flex justify-between items-center px-6 py-2 max-w-7xl mx-auto">
+      <div class="text-lg font-black tracking-tighter text-white font-headline flex items-center gap-2">
+        <!-- width/height explícitos → evita CLS (Layout Shift) -->
+        <img src="./assets/img/logoteclook.png" alt="TECLOOK Logo" width="40" height="40" style="object-fit:contain;" />
+        <div class="flex items-center">
+          <span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span>
+        </div>
+      </div>
+
+      <div class="nav-desktop-links hidden lg:flex gap-8 items-center">
+        <a href="#soluciones" class="font-headline font-bold text-xs tracking-widest text-white/50 hover:text-electric-orange transition-colors">SOLUCIONES</a>
+        <a href="#ecosistema" class="font-headline font-bold text-xs tracking-widest text-white/50 hover:text-electric-orange transition-colors">ECOSISTEMA</a>
+        <a href="#ia"         class="font-headline font-bold text-xs tracking-widest text-white/50 hover:text-electric-orange transition-colors">AGENTES IA</a>
+        <a href="#apps"       class="font-headline font-bold text-xs tracking-widest text-white/50 hover:text-electric-orange transition-colors">APPS</a>
+        <a href="#planes"     class="font-headline font-bold text-xs tracking-widest text-white/50 hover:text-electric-orange transition-colors">PLANES</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/573156090975?text=Vengo%20del%20Ecosistema%20de%20Teclook%20y%20Quiero%20Mi%20Prototipo"
+          target="_blank" rel="noopener noreferrer"
+          class="group relative hidden lg:flex items-center gap-4 px-5 py-2 rounded-sm border border-electric-orange/40 bg-white/[0.02] transition-all duration-700">
+          <div class="absolute inset-y-0 left-0 w-[1px] bg-electric-orange/0 group-hover:bg-electric-orange/100 transition-all duration-700"></div>
+          <span class="text-[8px] md:text-[9px] tracking-[0.5em] font-light text-white/50 group-hover:text-white uppercase transition-colors duration-500">
+            <span class="text-electric-orange/60 transition-colors duration-500"></span> Empieza Ya
+          </span>
+          <div class="flex gap-1">
+            <div class="w-1 h-1 rounded-full bg-white/10 group-hover:bg-electric-orange transition-colors duration-300"></div>
+            <div class="w-1 h-1 rounded-full bg-white/5 group-hover:bg-electric-orange/50 transition-colors duration-500"></div>
+          </div>
+        </a>
+        <button id="burger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MENÚ MÓVIL -->
+  <div id="mobile-menu" role="dialog" aria-label="Menú principal" aria-modal="true">
+    <a href="#soluciones" class="mobile-nav-link">Soluciones</a>
+    <a href="#ecosistema" class="mobile-nav-link">Ecosistema</a>
+    <a href="#ia"         class="mobile-nav-link">Agentes IA</a>
+    <a href="#apps"       class="mobile-nav-link">Apps</a>
+    <a href="#planes"     class="mobile-nav-link">Planes</a>
+    <a href="https://wa.me/573156090975?text=Vengo%20del%20Ecosistema%20de%20Teclook%20y%20Quiero%20Mi%20Prototipo"
+      target="_blank" rel="noopener noreferrer"
+      style="color:#FF5C1A;margin-top:1rem;font-size:0.85rem;">
+      ▶ Empieza Ya
+    </a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- SECCIÓN 1 — HERO -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#0A0A0B]">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-electric-orange/15 via-transparent to-transparent opacity-70"></div>
+        <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-cyan-500/10 blur-[160px] rounded-full opacity-60"></div>
+        <!-- bg-mz-caldas.webp está preloaded en <head> para mejorar LCP -->
+        <div class="absolute inset-0 opacity-20" style="background-image: url('assets/img/fondo-tec.webp'); background-size: cover; background-repeat: no-repeat; background-position: center; filter: sepia(0.5) hue-rotate(-15deg) brightness(0.7) contrast(1.3);"></div>
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,165,0,0.05) 1px, transparent 0); background-size: 32px 32px;"></div>
+      </div>
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <h1 class="hero-title font-headline font-black text-6xl md:text-7xl leading-none tracking-tighter mb-6">
+          <span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span>
+        </h1>
+        <div class="flex items-center justify-center gap-4 mb-8">
+          <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-electric-orange/30"></div>
+          <div class="h-1 w-1 rounded-full bg-electric-orange animate-pulse"></div>
+          <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-electric-orange/30"></div>
+        </div>
+        <p class="hero-subtitle font-body text-lg md:text-xl text-white/80 max-w-xl mx-auto mb-12 leading-relaxed font-light">
+          Sistema Market-Tech de alto rendimiento.
+          Ingeniería de marca, IA y diseño estratégico para escalabilidad.
+        </p>
+        <div class="flex flex-col items-center gap-2">
+          <p class="text-white/40 text-[9px] tracking-[0.5em] uppercase font-semibold">
+            Manizales <span class="text-electric-orange/30 mx-1">|</span> Colombia
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2 — SOLUCIONES BENTO -->
+    <section class="section-py py-32 px-8 section-px max-w-7xl mx-auto relative" id="soluciones">
+      <div class="mb-16 md:mb-24 text-center">
+        <h2 class="section-heading font-headline text-6xl md:text-7xl font-black mb-6 tracking-tighter">Soluciones De <span class="text-electric-orange">Alta Fidelidad</span></h2>
+        <p class="text-font-white text-base md:text-xl">Arquitectura de software diseñada para dominar mercados.</p>
+      </div>
+
+      <div class="bento-height-fix grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+        <div class="md:col-span-2 glass-card rounded-[2.5rem] p-8 md:p-12 flex flex-col justify-between bento-glow transition-all group overflow-hidden relative">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-electric-orange/5 blur-3xl rounded-full"></div>
+          <div>
+            <span class="material-symbols-outlined text-5xl md:text-6xl text-electric-orange mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500" style="font-variation-settings:'FILL' 1;">smart_toy</span>
+            <h3 class="font-headline text-3xl md:text-4xl font-black mb-4">Agentes de IA Personalizados</h3>
+            <p class="text-font-white text-base md:text-xl leading-relaxed max-w-md">Sistemas autónomos que ejecutan ventas y soporte 24/7 con razonamiento humano integrado.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-center items-center text-center bento-glow transition-all group border-indigo-vibrant/20">
+          <span class="material-symbols-outlined text-6xl md:text-7xl text-indigo-vibrant mb-6 group-hover:rotate-12 transition-transform" style="font-variation-settings:'FILL' 1;">insights</span>
+          <h3 class="font-headline text-2xl md:text-3xl font-bold mb-4">Anuncios de Alto Impacto</h3>
+          <p class="text-font-white text-sm md:text-base">Marketing de datos para escalar tu negocio. Optimizamos tu inversión para lograr un ROAS 10x con clientes reales.</p>
+        </div>
+
+        <div class="glass-card rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-end bento-glow transition-all group">
+          <span class="material-symbols-outlined text-5xl text-white/40 mb-6 group-hover:text-electric-orange transition-colors">web_asset</span>
+          <h3 class="font-headline text-2xl md:text-3xl font-bold mb-4">Páginas de Venta e Informativas</h3>
+          <p class="text-font-white text-sm md:text-base">UI/UX de lujo optimizado para el cierre inmediato.</p>
+        </div>
+
+        <div class="md:col-span-2 glass-card rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12 items-center bento-glow transition-all group">
+          <div class="flex-1">
+            <span class="material-symbols-outlined text-5xl md:text-6xl text-indigo-vibrant mb-6" style="font-variation-settings:'FILL' 1;">edgesensor_high</span>
+            <h3 class="font-headline text-3xl md:text-4xl font-black mb-4">Apps Híbridas 2026</h3>
+            <p class="text-font-white text-base md:text-xl">Una base de código, despliegue total en iOS y Android con experiencia nativa.</p>
+          </div>
+          <div class="flex-1 grid grid-cols-2 gap-2 opacity-50 group-hover:opacity-100 transition-opacity w-full">
+            <div class="h-14 md:h-16 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center font-bold text-white text-sm">React</div>
+            <div class="h-14 md:h-16 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center font-bold text-white text-sm">FastAPI</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 md:mt-20 text-center">
+        <a href="https://wa.me/573156090975?text=Hola,%20quisiera%20más%20información%20sobre%20las%20soluciones%20High-Fidelity" target="_blank" rel="noopener noreferrer"
+          class="relative inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 overflow-hidden font-headline font-black tracking-widest text-white transition duration-300 ease-out border-2 border-electric-orange rounded-full shadow-md group">
+          <span class="absolute inset-0 flex items-center justify-center w-full h-full text-font-white duration-300 -translate-x-full bg-electric-orange group-hover:translate-x-0 ease">
+            <span class="material-symbols-outlined text-3xl">chat</span>
+          </span>
+          <span class="absolute flex items-center justify-center w-full h-full text-font-white transition-all duration-300 transform group-hover:translate-x-full ease">MÁS INFORMACIÓN</span>
+          <span class="relative invisible">MÁS INFORMACIÓN</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3 — ECOSISTEMA -->
+    <section class="section-py py-32 relative overflow-hidden" id="ecosistema">
+      <div class="absolute inset-0 bg-indigo-vibrant/5 blur-[150px] opacity-30"></div>
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="flagship-border rounded-[3rem] p-1 overflow-hidden bg-navy-deep">
+          <div class="ecosistema-inner glass rounded-[2.9rem] grid grid-cols-1 md:grid-cols-2 items-center gap-12 p-8 md:p-16">
+            <div class="order-1">
+              <div class="inline-block px-4 py-1 bg-indigo-vibrant/20 text-font-white border border-indigo-vibrant/30 rounded-full text-xs font-black tracking-widest mb-6 md:mb-8">
+                PAQUETE ESTRELLA
+              </div>
+              <h2 class="section-heading-xl text-4xl md:text-6xl font-headline font-black mb-6 md:mb-8 leading-tight text-font-white">
+                Market-Tech <br />
+                <span class="text-indigo-vibrant">360 Experience</span>
+              </h2>
+              <p class="text-base md:text-xl text-font-white/80 mb-8 md:mb-12 leading-relaxed">
+                La solución definitiva para empresas que no aceptan mediocridad.
+                <span class="text-font-white font-bold">Blindaje legal, tecnológico y comercial</span> en un solo ecosistema sincronizado.
+              </p>
+              <div class="space-y-6 md:space-y-10">
+                <div class="border-l-2 border-indigo-vibrant pl-6">
+                  <h4 class="text-indigo-vibrant font-black uppercase tracking-wider text-sm mb-2">Ecosistema Legal Digital</h4>
+                  <p class="text-font-white text-sm md:text-base leading-snug">Contratos inteligentes y cumplimiento normativo automatizado.</p>
+                </div>
+                <div class="border-l-2 border-indigo-vibrant pl-6">
+                  <h4 class="text-indigo-vibrant font-black uppercase tracking-wider text-sm mb-2">Infraestructura de Alto Rendimiento</h4>
+                  <p class="text-font-white text-sm md:text-base leading-snug">Tiempos de carga bajo 100ms para SEO y conversión de alto impacto.</p>
+                </div>
+                <div class="border-l-2 border-indigo-vibrant pl-6">
+                  <h4 class="text-indigo-vibrant font-black uppercase tracking-wider text-sm mb-2">8 Piezas de Autoridad Semanales</h4>
+                  <p class="text-font-white text-sm md:text-base leading-snug">Estrategia de contenido con IA que construye un monopolio de atención.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ecosistema-img-col relative order-last md:order-2">
+              <!-- width/height añadidos → evita CLS -->
+              <img class="rounded-3xl border border-white/10 relative z-10 w-full shadow-2xl"
+                src="assets/img/marketing digital.png"
+                alt="Estrategia de Marketing Digital y Software - TECLOOK"
+                width="600" height="450"
+                loading="lazy" />
+              <div class="absolute -top-10 -right-10 w-40 h-40 bg-indigo-vibrant/20 rounded-full blur-3xl"></div>
+              <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-electric-orange/10 rounded-full blur-3xl"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4 — AGENTES IA -->
+    <section class="section-py py-32 bg-navy-deep relative" id="ia">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16 md:mb-24">
+          <h2 class="section-heading font-headline text-4xl md:text-6xl font-black mb-6">Agentes de IA Proactivos</h2>
+          <p class="text-lg md:text-2xl text-electric-orange font-light tracking-widest uppercase">"Tu empresa trabajando mientras duermes"</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+          <div class="glass-card rounded-3xl p-6 md:p-8 border-white/5 hover:border-electric-orange/30 transition-all">
+            <div class="w-14 h-14 md:w-16 md:h-16 bg-electric-orange/10 rounded-2xl flex items-center justify-center mb-6 md:mb-8 mx-auto">
+              <span class="material-symbols-outlined text-electric-orange text-2xl md:text-3xl">chat</span>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">WhatsApp Automatizado</h3>
+            <p class="text-font-white mb-6 text-sm leading-relaxed text-center">Integración profunda con Meta API para cerrar leads calificados en tiempo real sin intervención humana.</p>
+            <div class="ia-code-block bg-black/40 rounded-xl p-4 font-mono text-[10px] text-teal-400 border border-white/5">
+              <span class="text-white/30">// Webhook activo</span><br />
+              await agent.analyzeContext(msg);<br />
+              if (intent == 'buying') closeSale();
+            </div>
+          </div>
+
+          <div class="glass-card rounded-3xl p-6 md:p-8 border-white/5 hover:border-indigo-vibrant/30 transition-all">
+            <div class="w-14 h-14 md:w-16 md:h-16 bg-indigo-vibrant/10 rounded-2xl flex items-center justify-center mb-6 md:mb-8 mx-auto">
+              <span class="material-symbols-outlined text-indigo-vibrant text-2xl md:text-3xl">filter_alt</span>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">Filtro Inteligente de Clientes</h3>
+            <p class="text-font-white mb-6 text-sm leading-relaxed text-center">Clasificación automática de prospectos basada en comportamiento web y respuestas de chat.</p>
+            <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4">
+              <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="w-[85%] h-full bg-indigo-vibrant shadow-[0_0_10px_#4F6EF7]"></div>
+              </div>
+              <span class="text-xs font-bold">85% HOT</span>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-3xl p-6 md:p-8 border-white/5 hover:border-white/20 transition-all text-center flex flex-col items-center">
+            <div class="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-6 md:mb-8 mx-auto">
+              <span class="material-symbols-outlined text-white text-2xl md:text-3xl">autorenew</span>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-4">Seguimiento Imbatible</h3>
+            <p class="text-font-white mb-6 text-sm leading-relaxed">Secuencias multicanal dinámicas que se adaptan a la objeción del cliente en cada paso.</p>
+            <div class="flex -space-x-3 justify-center pl-3">
+              <div class="w-8 h-8 rounded-full bg-white/10 border-2 border-navy-deep flex items-center justify-center text-[10px] font-bold">Email</div>
+              <div class="w-8 h-8 rounded-full bg-electric-orange border-2 border-navy-deep flex items-center justify-center text-[10px] font-bold">SMS</div>
+              <div class="w-8 h-8 rounded-full bg-indigo-vibrant border-2 border-navy-deep flex items-center justify-center text-[10px] font-bold">CRM</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5 — APPS Y PLANES WEB -->
+    <section class="section-py py-32 bg-white/5 relative overflow-hidden" id="apps"
+      x-data="{ tab: 'apps' }"
+      @hashchange.window="if(location.hash==='#apps') tab='apps'; if(location.hash==='#soluciones') tab='web'"
+      x-init="if(location.hash==='#apps') tab='apps'; if(location.hash==='#soluciones') tab='web'">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,110,247,0.1),transparent_50%)] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+
+        <!-- Tabs -->
+        <div class="flex justify-center mb-10 md:mb-16">
+          <div class="inline-flex p-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full">
+            <button @click="tab='web'"
+              :class="tab==='web'?'bg-electric-orange text-white':'text-white/40 hover:text-white'"
+              class="tab-btn px-5 md:px-8 py-2.5 md:py-3 rounded-full font-bold transition-all duration-300 text-xs tracking-widest uppercase">
+              PLANES WEB
+            </button>
+            <button @click="tab='apps'"
+              :class="tab==='apps'?'bg-indigo-vibrant text-white':'text-white/40 hover:text-white'"
+              class="tab-btn px-5 md:px-8 py-2.5 md:py-3 rounded-full font-bold transition-all duration-300 text-xs tracking-widest uppercase">
+              APPS MÓVILES
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-start gap-12 md:gap-24">
+
+          <!-- Panel izquierdo -->
+          <div class="flex-1 w-full min-w-0">
+
+            <!-- APPS -->
+            <div x-show="tab==='apps'" x-transition:enter="transition duration-500 opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+              <h2 class="section-heading-xl text-3xl sm:text-4xl md:text-6xl font-headline font-black mb-4 md:mb-8 leading-tight">Aplicaciones Móviles <br /><span class="text-indigo-vibrant">Híbridas Pro</span></h2>
+              <p class="text-sm sm:text-lg md:text-2xl text-font-white mb-6 md:mb-12 font-light italic">"Una sola base de código para iOS y Android, con experiencia nativa."</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-8">
+                <div class="p-4 md:p-6 glass-card rounded-2xl border-white/10">
+                  <div class="flex items-center gap-3 mb-3 md:mb-4">
+                    <div class="w-9 h-9 md:w-10 md:h-10 bg-[#61DAFB]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg class="w-5 h-5 md:w-6 md:h-6 fill-[#61DAFB]" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.32 10.648a.5.5 0 0 0-.196-.407c-1.517-1.12-3.864-1.636-6.428-1.42a13.344 13.344 0 0 1-2.903-5.266c-.34-.993-.865-1.555-1.442-1.555-.576 0-1.101.562-1.441 1.554-.85 2.482-1.892 4.296-2.904 5.267-2.564-.217-4.91.299-6.428 1.42a.502.502 0 0 0-.197.407c0 .167.082.324.225.412 1.488 1.102 3.82 1.621 6.368 1.42 1.012.97 2.053 2.784 2.903 5.267.34.992.865 1.554 1.441 1.554.577 0 1.102-.562 1.442-1.554a13.34 13.34 0 0 1 2.903-5.267c2.548.201 4.88-.318 6.368-1.42a.502.502 0 0 0 .225-.412z"/></svg>
+                    </div>
+                    <span class="font-bold text-white text-sm md:text-base">Frontend Móvil</span>
+                  </div>
+                  <p class="text-xs text-font-white leading-relaxed">React Native para construir una app híbrida con rendimiento y experiencia de app nativa.</p>
+                </div>
+                <div class="p-4 md:p-6 glass-card rounded-2xl border-white/10">
+                  <div class="flex items-center gap-3 mb-3 md:mb-4">
+                    <div class="w-9 h-9 md:w-10 md:h-10 bg-[#05998b]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span class="material-symbols-outlined text-[#05998b] text-lg md:text-xl">bolt</span>
+                    </div>
+                    <span class="font-bold text-white text-sm md:text-base">Backend y API</span>
+                  </div>
+                  <p class="text-xs text-font-white leading-relaxed">Servicios con FastAPI para autenticación, lógica de negocio, notificaciones y consumo desde la app.</p>
+                </div>
+                <div class="p-4 md:p-6 glass-card rounded-2xl border-white/10">
+                  <div class="flex items-center gap-3 mb-3 md:mb-4">
+                    <div class="w-9 h-9 md:w-10 md:h-10 bg-[#FF9900]/20 rounded-lg flex items-center justify-center text-[#FF9900] font-black text-xs flex-shrink-0">AWS</div>
+                    <span class="font-bold text-white text-sm md:text-base">Infraestructura Cloud</span>
+                  </div>
+                  <p class="text-xs text-font-white leading-relaxed">Despliegue seguro y escalable en la nube para soportar crecimiento, rendimiento y alta disponibilidad.</p>
+                </div>
+                <div class="p-4 md:p-6 glass-card rounded-2xl border-white/10">
+                  <div class="flex items-center gap-3 mb-3 md:mb-4">
+                    <div class="w-9 h-9 md:w-10 md:h-10 bg-electric-orange/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span class="material-symbols-outlined text-electric-orange text-lg md:text-xl">analytics</span>
+                    </div>
+                    <span class="font-bold text-white text-sm md:text-base">Datos y Analítica</span>
+                  </div>
+                  <p class="text-xs text-font-white leading-relaxed">Firebase para eventos en tiempo real, analítica de uso y trazabilidad del comportamiento del usuario.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- PLANES WEB -->
+            <div x-show="tab==='web'" x-cloak x-transition:enter="transition duration-500 opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+              <h2 class="section-heading-xl text-3xl sm:text-4xl md:text-6xl font-headline font-black mb-6 md:mb-8 text-white leading-tight">Software <span class="text-electric-orange">Web</span></h2>
+              <div class="space-y-3 md:space-y-4" x-data="{ planOpen: null }">
+                <div class="glass-card rounded-2xl border border-white/10 overflow-hidden" :class="planOpen===1?'border-electric-orange/40':''">
+                  <button @click="planOpen=(planOpen===1?null:1)" class="w-full flex items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-5 text-left hover:bg-white/5 transition-colors">
+                    <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-electric-orange/10 border border-electric-orange/20 flex items-center justify-center text-electric-orange font-black text-xs md:text-sm tracking-widest flex-shrink-0">P1</span>
+                    <div class="flex-1 min-w-0">
+                      <p class="font-headline text-sm md:text-lg text-white">Plan 1</p>
+                      <p class="text-xs text-white/40 uppercase tracking-widest truncate">Frontend</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 transition-transform flex-shrink-0" :class="planOpen===1?'rotate-180':''">expand_more</span>
+                  </button>
+                  <div x-show="planOpen===1" x-cloak class="px-4 md:px-6 pb-6 md:pb-8 pt-2 border-t border-white/5 bg-white/[0.01] text-xs md:text-sm text-font-white/70 leading-relaxed">
+                    <p><strong>Frontend:</strong> HTML + CSS, Diseño responsive (móvil y PC), 1 a 3 secciones, Botón de WhatsApp, Formulario de contacto (envía a correo).</p>
+                    <p class="mt-2"><strong>INFRAESTRUCTURA Y SOPORTE:</strong> Hosting básico · Dominio (.com o .com.co) · Certificado SSL. Sin backend, Sin base de datos.</p>
+                  </div>
+                </div>
+                <div class="glass-card rounded-2xl border border-white/10 overflow-hidden" :class="planOpen===2?'border-indigo-vibrant/40':''">
+                  <button @click="planOpen=(planOpen===2?null:2)" class="w-full flex items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-5 text-left hover:bg-white/5 transition-colors">
+                    <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-indigo-vibrant/10 border border-indigo-vibrant/20 flex items-center justify-center text-indigo-vibrant font-black text-xs md:text-sm tracking-widest flex-shrink-0">P2</span>
+                    <div class="flex-1 min-w-0">
+                      <p class="font-headline text-sm md:text-lg text-white">Plan 2</p>
+                      <p class="text-xs text-white/40 uppercase tracking-widest truncate">Frontend + Backend Ligero</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 transition-transform flex-shrink-0" :class="planOpen===2?'rotate-180':''">expand_more</span>
+                  </button>
+                  <div x-show="planOpen===2" x-cloak class="px-4 md:px-6 pb-6 md:pb-8 pt-2 border-t border-white/5 bg-white/[0.01] text-xs md:text-sm text-font-white/70 leading-relaxed">
+                    <p><strong>Frontend:</strong> HTML + CSS + JavaScript, Diseño personalizado, 5 a 7 secciones, Galería de imágenes, Animaciones suaves.</p>
+                    <p class="mt-2"><strong>Backend:</strong> Lenguajes afines, Procesamiento de formularios, Envío de correos automáticos, Seguridad básica.</p>
+                    <p class="mt-2"><strong>INFRAESTRUCTURA Y SOPORTE:</strong> Hosting + dominio · SSL · SEO básico. Sin base de datos.</p>
+                  </div>
+                </div>
+                <div class="glass-card rounded-2xl border border-white/10 overflow-hidden" :class="planOpen===3?'border-electric-orange/40':''">
+                  <button @click="planOpen=(planOpen===3?null:3)" class="w-full flex items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-5 text-left hover:bg-white/5 transition-colors">
+                    <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-electric-orange/10 border border-electric-orange/20 flex items-center justify-center text-electric-orange font-black text-xs md:text-sm tracking-widest flex-shrink-0">P3</span>
+                    <div class="flex-1 min-w-0">
+                      <p class="font-headline text-sm md:text-lg text-white">Plan 3</p>
+                      <p class="text-xs text-white/40 uppercase tracking-widest truncate">Web Full Stack</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 transition-transform flex-shrink-0" :class="planOpen===3?'rotate-180':''">expand_more</span>
+                  </button>
+                  <div x-show="planOpen===3" x-cloak class="px-4 md:px-6 pb-6 md:pb-8 pt-2 border-t border-white/5 bg-white/[0.01] text-xs md:text-sm text-font-white/70 leading-relaxed">
+                    <p><strong>Frontend:</strong> Framework (React, Vue o Blade), Diseño avanzado, 6 a 10 secciones, Panel administrativo.</p>
+                    <p class="mt-2"><strong>Backend:</strong> Framework backend (Laravel / Node / Django), Autenticación de usuarios, CRUD completo, Seguridad avanzada.</p>
+                    <p class="mt-2"><strong>Base de datos:</strong> MySQL / PostgreSQL, Formularios guardados, Gestión de clientes o contenido.</p>
+                    <p class="mt-2"><strong>INFRAESTRUCTURA Y SOPORTE:</strong> Hosting optimizado · Dominio + SSL · Backups automáticos.</p>
+                  </div>
+                </div>
+                <div class="glass-card rounded-2xl border border-white/10 overflow-hidden" :class="planOpen===4?'border-indigo-vibrant/40':''">
+                  <button @click="planOpen=(planOpen===4?null:4)" class="w-full flex items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-5 text-left hover:bg-white/5 transition-colors">
+                    <span class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-indigo-vibrant/10 border border-indigo-vibrant/20 flex items-center justify-center text-indigo-vibrant font-black text-xs md:text-sm tracking-widest flex-shrink-0">P4</span>
+                    <div class="flex-1 min-w-0">
+                      <p class="font-headline text-sm md:text-lg text-white">Plan 4</p>
+                      <p class="text-xs text-white/40 uppercase tracking-widest truncate">Sistema Web Empresarial Completo</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 transition-transform flex-shrink-0" :class="planOpen===4?'rotate-180':''">expand_more</span>
+                  </button>
+                  <div x-show="planOpen===4" x-cloak class="px-4 md:px-6 pb-6 md:pb-8 pt-2 border-t border-white/5 bg-white/[0.01] text-xs md:text-sm text-font-white/70 leading-relaxed">
+                    <p><strong>Frontend:</strong> Framework moderno (React / Next / Vue), UI/UX profesional, Paneles interactivos, Responsive premium.</p>
+                    <p class="mt-2"><strong>Backend:</strong> Backend robusto (Laravel / Node), API REST, Roles y permisos, Automatizaciones, Integraciones externas.</p>
+                    <p class="mt-2"><strong>Base de datos:</strong> Base de datos avanzada, Gestión de usuarios, pedidos, reservas, Reportes y estadísticas.</p>
+                    <p class="mt-2"><strong>INFRAESTRUCTURA Y SOPORTE:</strong> Hosting premium · Dominio + SSL · Backups diarios · SEO avanzado · Analítica.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Panel derecho: mockups -->
+          <div class="hidden lg:flex flex-1 flex-col justify-center lg:sticky lg:top-32 w-full relative" style="min-height:420px;">
+
+            <!-- MOCKUP TELÉFONOS -->
+            <div :class="tab==='apps' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none absolute -z-10'"
+              class="phone-mockup-wrap transition-opacity duration-500">
+              <div class="phone-card group">
+                <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <div class="absolute inset-0" style="background:radial-gradient(circle at 20% 20%,rgba(79,110,247,0.28),transparent 45%),radial-gradient(circle at 80% 70%,rgba(255,92,26,0.2),transparent 40%),linear-gradient(180deg,#0b1322 0%,#060a12 100%);"></div>
+                  <div class="relative z-10 h-full px-5 pt-10 pb-8 flex flex-col gap-4">
+                    <div class="flex items-start justify-between text-white">
+                      <div>
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-white/60">Dashboard de Ventas</p>
+                        <p class="text-sm font-bold mt-1 leading-tight">Manizales en Tiempo Real</p>
+                      </div>
+                      <div class="px-2.5 py-1 rounded-full bg-electric-orange/90 text-[9px] font-black tracking-wider">ACTIVO</div>
+                    </div>
+                    <div class="flex-1 min-h-0 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-3">
+                      <p class="text-[10px] uppercase tracking-[0.2em] text-white/45 mb-2">Rendimiento Diario</p>
+                      <div class="flex items-end gap-1.5 h-[calc(100%-22px)]">
+                        <div class="w-2 h-10 rounded-full bg-electric-orange/60"></div>
+                        <div class="w-2 h-14 rounded-full bg-electric-orange/70"></div>
+                        <div class="w-2 h-20 rounded-full bg-electric-orange/80"></div>
+                        <div class="w-2 h-24 rounded-full bg-electric-orange"></div>
+                        <div class="w-2 h-16 rounded-full bg-electric-orange/70"></div>
+                        <div class="w-2 h-20 rounded-full bg-electric-orange/90"></div>
+                        <div class="w-2 h-28 rounded-full bg-electric-orange"></div>
+                        <div class="w-2 h-16 rounded-full bg-electric-orange/60"></div>
+                        <div class="w-2 h-12 rounded-full bg-electric-orange/50"></div>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-1 text-white"><span class="material-symbols-outlined text-[14px] text-electric-orange">filter_alt</span><p class="text-[12px] font-bold">128</p></div>
+                      </div>
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-1 text-white"><span class="material-symbols-outlined text-[14px] text-indigo-vibrant">percent</span><p class="text-[12px] font-bold">14.8%</p></div>
+                      </div>
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-1 text-white"><span class="material-symbols-outlined text-[14px] text-teal-400">payments</span><p class="text-[12px] font-bold">$9.4M</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-full z-20"></div>
+              </div>
+              <div class="phone-card phone-card-offset group">
+                <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <div class="absolute inset-0" style="background:radial-gradient(circle at 75% 20%,rgba(20,184,166,0.2),transparent 45%),radial-gradient(circle at 15% 80%,rgba(79,110,247,0.28),transparent 45%),linear-gradient(180deg,#0a1020 0%,#070b13 100%);"></div>
+                  <div class="relative z-10 h-full px-5 pt-10 pb-8 flex flex-col gap-4 text-white">
+                    <div class="flex items-start justify-between">
+                      <div>
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-white/60">App de Servicio</p>
+                        <p class="text-sm font-bold mt-1 leading-tight">Clientes y Reservas</p>
+                      </div>
+                      <div class="px-2.5 py-1 rounded-full bg-indigo-vibrant/90 text-[9px] font-black tracking-wider">EN LÍNEA</div>
+                    </div>
+                    <div class="h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md px-3 py-2.5 flex items-center justify-between">
+                      <div class="flex-1 text-center"><span class="material-symbols-outlined text-[14px] text-indigo-vibrant mb-0.5">event_available</span><p class="text-base font-black leading-none">37</p></div>
+                      <div class="flex-1 text-center"><span class="material-symbols-outlined text-[14px] text-teal-400 mb-0.5">verified_user</span><p class="text-base font-black leading-none">31</p></div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center"><span class="material-symbols-outlined text-[14px] text-electric-orange">chat</span><p class="text-[11px] font-bold">OK</p></div>
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex flex-col items-center justify-center"><span class="material-symbols-outlined text-[14px] text-indigo-vibrant">payments</span><p class="text-[11px] font-bold">99%</p></div>
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center"><span class="material-symbols-outlined text-[14px] text-teal-400">star</span><p class="text-[11px] font-bold">4.8</p></div>
+                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex flex-col items-center justify-center"><span class="material-symbols-outlined text-[14px] text-electric-orange">confirmation_number</span><p class="text-[11px] font-bold">12</p></div>
+                    </div>
+                    <div class="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2.5">
+                      <p class="text-[10px] uppercase tracking-[0.2em] text-white/45 mb-2">Actividad Semanal</p>
+                      <div class="w-full h-[calc(100%-24px)] rounded-xl bg-[linear-gradient(90deg,rgba(79,110,247,0.25)_0%,rgba(79,110,247,0.05)_45%,rgba(255,92,26,0.25)_100%)]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MOCKUP BROWSER -->
+            <div :class="tab==='web' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none absolute -z-10'"
+              class="browser-mockup-wrap group transition-opacity duration-500">
+              <div class="browser-frame grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-[#0f1115]"></div>
+                <div class="relative z-10 h-full flex flex-col">
+                  <div class="bg-[#1a1c20] px-3 py-2 flex items-center justify-between border-b border-white/5">
+                    <div class="flex gap-1.5">
+                      <div class="w-2 h-2 rounded-full bg-red-500/40"></div>
+                      <div class="w-2 h-2 rounded-full bg-yellow-500/40"></div>
+                      <div class="w-2 h-2 rounded-full bg-green-500/40"></div>
+                    </div>
+                    <div class="flex-1 max-w-xs mx-4">
+                      <div class="bg-black/20 rounded-md py-1 px-3 text-[9px] text-white/30 font-mono flex items-center gap-2 italic">
+                        <span class="material-symbols-outlined text-[10px]">lock</span> teclook.pro/dashboard
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-sm">more_vert</span>
+                  </div>
+                  <div class="flex-1 p-4 grid grid-cols-12 gap-4">
+                    <div class="col-span-3 space-y-3">
+                      <div class="h-3 w-2/3 bg-white/5 rounded"></div>
+                      <div class="h-20 bg-indigo-vibrant/10 border border-indigo-vibrant/20 rounded-xl p-2">
+                        <div class="w-full h-full border-2 border-dashed border-indigo-vibrant/30 rounded-lg flex items-center justify-center">
+                          <span class="material-symbols-outlined text-indigo-vibrant opacity-50 text-sm">add_chart</span>
+                        </div>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="h-2 w-full bg-white/5 rounded"></div>
+                        <div class="h-2 w-5/6 bg-white/5 rounded"></div>
+                        <div class="h-2 w-4/6 bg-white/5 rounded"></div>
+                      </div>
+                    </div>
+                    <div class="col-span-9 space-y-4">
+                      <div class="grid grid-cols-3 gap-3">
+                        <div class="h-16 bg-white/[0.03] border border-white/10 rounded-xl p-3 flex flex-col justify-center">
+                          <p class="text-[7px] text-white/30 uppercase tracking-widest mb-1">Users</p>
+                          <p class="text-lg font-bold text-white">2.4k</p>
+                        </div>
+                        <div class="h-16 bg-white/[0.03] border border-white/10 rounded-xl p-3 flex flex-col justify-center">
+                          <p class="text-[7px] text-white/30 uppercase tracking-widest mb-1">Conversion</p>
+                          <p class="text-lg font-bold text-electric-orange">12.5%</p>
+                        </div>
+                        <div class="h-16 bg-white/[0.03] border border-white/10 rounded-xl p-3 flex flex-col justify-center">
+                          <p class="text-[7px] text-white/30 uppercase tracking-widest mb-1">Server</p>
+                          <p class="text-base font-bold text-teal-400 leading-none flex items-center gap-1">Online <span class="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse"></span></p>
+                        </div>
+                      </div>
+                      <div class="bg-black/40 border border-white/5 rounded-2xl p-4 relative overflow-hidden">
+                        <div class="flex items-end gap-2 h-20">
+                          <div class="flex-1 bg-white/5 h-[30%] rounded-t-sm"></div>
+                          <div class="flex-1 bg-white/10 h-[50%] rounded-t-sm"></div>
+                          <div class="flex-1 bg-indigo-vibrant/40 h-[85%] rounded-t-sm"></div>
+                          <div class="flex-1 bg-indigo-vibrant/60 h-[70%] rounded-t-sm"></div>
+                          <div class="flex-1 bg-indigo-vibrant h-full rounded-t-sm"></div>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-white/5 flex justify-between">
+                          <div class="h-2 w-12 bg-white/5 rounded"></div>
+                          <div class="h-2 w-12 bg-white/5 rounded"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative mx-auto w-20 h-4 bg-[#222] -mt-1 shadow-inner"></div>
+              <div class="relative mx-auto w-40 h-3 bg-[#333] rounded-t-xl rounded-b-md shadow-lg"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6 — MARKETING -->
+    <section class="section-py py-32 max-w-7xl mx-auto px-4 md:px-8" id="marketing">
+      <div class="text-center mb-16 md:mb-24">
+        <h2 class="section-heading font-headline text-4xl md:text-6xl font-black mb-6">Marketing que <span class="text-electric-orange">Conecta</span></h2>
+        <p class="text-font-white text-base md:text-xl max-w-2xl mx-auto">No buscamos clics, buscamos <span class="text-white font-bold">transacciones escalables</span> y fidelidad de marca absoluta.</p>
+      </div>
+      <div class="marketing-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div class="group relative bg-white/5 p-8 md:p-12 rounded-[2rem] border border-white/5 hover:bg-electric-orange/5 transition-all overflow-hidden text-center">
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-electric-orange/10 blur-2xl group-hover:bg-electric-orange/20"></div>
+          <span class="material-symbols-outlined text-electric-orange text-5xl mb-6 block">ads_click</span>
+          <h4 class="text-xl md:text-2xl font-black mb-4 tracking-tight">Ventas en Google</h4>
+          <p class="text-sm text-font-white leading-relaxed">Captura de demanda masiva mediante campañas optimizadas por algoritmos de IA propietarios.</p>
+        </div>
+        <div class="group relative bg-white/5 p-8 md:p-12 rounded-[2rem] border border-white/5 hover:bg-indigo-vibrant/5 transition-all overflow-hidden text-center">
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-vibrant/10 blur-2xl group-hover:bg-indigo-vibrant/20"></div>
+          <span class="material-symbols-outlined text-indigo-vibrant text-5xl mb-6 block">campaign</span>
+          <h4 class="text-xl md:text-2xl font-black mb-4 tracking-tight">Publicidad de Alto Impacto</h4>
+          <p class="text-sm text-font-white leading-relaxed">Escala agresiva en Meta y TikTok con creativos disruptivos de alta tasa de retención.</p>
+        </div>
+        <div class="group relative bg-white/5 p-8 md:p-12 rounded-[2rem] border border-white/5 hover:bg-white/10 transition-all overflow-hidden text-center">
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 blur-2xl group-hover:bg-white/20"></div>
+          <span class="material-symbols-outlined text-white text-5xl mb-6 block">edit_note</span>
+          <h4 class="text-xl md:text-2xl font-black mb-4 tracking-tight">ESTRATEGIA</h4>
+          <p class="text-sm text-font-white leading-relaxed">Construcción de autoridad de marca que elimina la resistencia al precio del cliente final.</p>
+        </div>
+        <div class="group relative bg-white/5 p-8 md:p-12 rounded-[2rem] border border-white/5 hover:bg-teal-400/5 transition-all overflow-hidden text-center">
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-teal-400/10 blur-2xl group-hover:bg-teal-400/20"></div>
+          <span class="material-symbols-outlined text-teal-400 text-5xl mb-6 block">diamond</span>
+          <h4 class="text-xl md:text-2xl font-black mb-4 tracking-tight">Lanzamientos</h4>
+          <p class="text-sm text-font-white leading-relaxed">Estructuración técnica y comercial para infoproductos y ecosistemas educativos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 7 — ADN IA -->
+    <section class="section-py py-32 bg-navy-deep overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="adn-wrap glass border border-white/10 relative">
+          <div class="absolute -top-20 -left-20 w-80 h-80 bg-electric-orange/5 blur-[120px]"></div>
+          <div class="flex-1 z-10">
+            <span class="text-indigo-vibrant font-headline font-black text-xs tracking-[0.4em] mb-6 block uppercase">Maestría en los Procesos</span>
+            <h2 class="section-heading-xl text-4xl md:text-6xl font-headline font-black mb-8 md:mb-10">Contenido con <span class="text-indigo-vibrant">ADN de IA</span></h2>
+            <p class="text-font-white text-base md:text-xl mb-8 md:mb-12 leading-relaxed">Nuestro protocolo de <span class="text-white font-bold">8 piezas de autoridad por semana</span> utiliza IA generativa para producir contenido de nivel cinematográfico en tiempo récord.</p>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4 md:gap-6 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-indigo-vibrant group-hover:bg-indigo-vibrant group-hover:text-white transition-all">1</div>
+                <span class="text-base md:text-lg font-bold">Guionizado Inteligente (Insight-Extraction)</span>
+              </div>
+              <div class="flex items-center gap-4 md:gap-6 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-indigo-vibrant group-hover:bg-indigo-vibrant group-hover:text-white transition-all">2</div>
+                <span class="text-base md:text-lg font-bold">Producción Cinematográfica 4K</span>
+              </div>
+              <div class="flex items-center gap-4 md:gap-6 group">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-indigo-vibrant group-hover:bg-indigo-vibrant group-hover:text-white transition-all">3</div>
+                <span class="text-base md:text-lg font-bold">Edición Dinámica por IA</span>
+              </div>
+            </div>
+          </div>
+          <div class="adn-img-col">
+            <div class="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(255,92,26,0.1)]">
+              <!-- loading=lazy: no es LCP, está abajo del fold -->
+              <img class="w-full grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
+                alt="Estudio de producción de contenido profesional - TECLOOK"
+                width="600" height="450"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFJsY27rzEmfW0LmIEdVlOSP19TU03dQKeWDQhcwaqwOzR6ksa9waURU50gZ4HA0qJ94zDNmstkbSlJa2fsM8cxLeiQlzgg3ZSAonXZbd9_ncxQvMMmLIX0uCBkYu1on7oxlq-QTiMkTXYjJIItvbSzTuIO1KehSnh7aVg22W-m4Nx7PMezfKUt7xHv7IQ-hsxnqjR6fr-99h6WOXtUdic_qT9dhOdkE_0ORKJotpo8dgbWWHSKKa-gJ1asRcrCJiOdF3ROtdiP0V_" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 8 — PLANES -->
+    <section class="section-py py-24 max-w-7xl mx-auto px-4 md:px-8 relative" id="planes">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="section-heading font-headline text-4xl md:text-6xl font-black mb-4">Inversión <span class="text-indigo-vibrant">Estratégica</span></h2>
+        <p class="text-font-white text-sm tracking-widest uppercase">Selecciona el motor que impulsará tu crecimiento exponencial.</p>
+      </div>
+      <div class="planes-grid grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 flex flex-col group hover:border-indigo-vibrant/30 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="material-symbols-outlined text-white/40 group-hover:text-indigo-vibrant transition-colors text-lg">rocket</span>
+            <div>
+              <h3 class="text-indigo-vibrant font-black tracking-[0.2em] uppercase">Starter</h3>
+              <p class="text-xs text-font-white mt-0.5">Validación de mercado.</p>
+            </div>
+          </div>
+          <div class="h-px bg-white/5 mb-6"></div>
+          <ul class="space-y-4 mb-8 flex-grow">
+            <li class="flex items-center gap-3 text-xs text-font-white"><span class="w-1 h-1 rounded-full bg-indigo-vibrant/30 flex-shrink-0"></span>Landing de Conversión</li>
+            <li class="flex items-center gap-3 text-xs text-font-white"><span class="w-1 h-1 rounded-full bg-indigo-vibrant/30 flex-shrink-0"></span>Setup de CRM Base</li>
+            <li class="flex items-center gap-3 text-xs text-font-white"><span class="w-1 h-1 rounded-full bg-indigo-vibrant/30 flex-shrink-0"></span>Estrategia de Contenidos</li>
+          </ul>
+          <a href="https://wa.me/573156090975?text=Hola%2C%20me%20interesa%20el%20plan%20Starter" target="_blank" rel="noopener noreferrer"
+            class="w-full py-3 rounded-xl border border-white/10 font-black tracking-widest text-xs hover:border-indigo-vibrant/40 hover:text-indigo-vibrant transition-all uppercase text-center block">
+            Consultar
+          </a>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-indigo-vibrant/40 flex flex-col relative group">
+          <div class="flex items-center gap-3 mb-6 mt-2">
+            <span class="material-symbols-outlined text-indigo-vibrant text-lg">bolt</span>
+            <div>
+              <h3 class="text-sm font-black tracking-[0.2em] uppercase text-indigo-vibrant">Ecosistema</h3>
+              <p class="text-xs text-font-white mt-0.5">Arquitectura completa para dominar.</p>
+            </div>
+          </div>
+          <div class="h-px bg-indigo-vibrant/20 mb-6"></div>
+          <ul class="space-y-4 mb-8 flex-grow">
+            <li class="flex items-center gap-3 text-xs font-medium"><span class="w-1 h-1 rounded-full bg-indigo-vibrant flex-shrink-0"></span>Ecosistema Tech Full</li>
+            <li class="flex items-center gap-3 text-xs font-medium"><span class="w-1 h-1 rounded-full bg-indigo-vibrant flex-shrink-0"></span>Agentes de IA Proactivos</li>
+            <li class="flex items-center gap-3 text-xs font-medium"><span class="w-1 h-1 rounded-full bg-indigo-vibrant flex-shrink-0"></span>Legal-Intelligence Suite</li>
+            <li class="flex items-center gap-3 text-xs font-medium"><span class="w-1 h-1 rounded-full bg-indigo-vibrant flex-shrink-0"></span>Marketing 360 & Ads</li>
+          </ul>
+          <a href="https://wa.me/573156090975?text=Hola%2C%20quiero%20el%20plan%20Ecosistema" target="_blank" rel="noopener noreferrer"
+            class="w-full py-3 rounded-xl bg-indigo-vibrant text-white font-black tracking-widest text-xs hover:brightness-110 transition-all uppercase text-center block">
+            Dominar el Mercado
+          </a>
+        </div>
+        <div class="glass-card p-6 md:p-8 rounded-2xl border border-white/5 flex flex-col group hover:border-indigo-vibrant/30 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="material-symbols-outlined text-white/40 group-hover:text-indigo-vibrant transition-colors text-lg">stars</span>
+            <div>
+              <h3 class="text-indigo-vibrant font-black tracking-[0.2em] uppercase">Enterprise</h3>
+              <p class="text-xs text-font-white mt-0.5">Soluciones custom de gran escala.</p>
+            </div>
+          </div>
+          <div class="h-px bg-white/5 mb-6"></div>
+          <ul class="space-y-4 mb-8 flex-grow">
+            <li class="flex items-center gap-3 text-xs text-font-white"><span class="w-1 h-1 rounded-full bg-indigo-vibrant/50 flex-shrink-0"></span>Arquitectura de Microservicios</li>
+            <li class="flex items-center gap-3 text-xs text-font-white"><span class="w-1 h-1 rounded-full bg-indigo-vibrant/50 flex-shrink-0"></span>Apps Híbridas a Medida</li>
+            <li class="flex items-center gap-3 text-xs text-font-white"><span class="w-1 h-1 rounded-full bg-indigo-vibrant/50 flex-shrink-0"></span>DevOps & Cloud Scalability</li>
+          </ul>
+          <a href="https://wa.me/573156090975?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise" target="_blank" rel="noopener noreferrer"
+            class="w-full py-3 rounded-xl border border-white/10 font-black tracking-widest text-xs hover:border-indigo-vibrant/40 hover:text-indigo-vibrant transition-all uppercase text-center block">
+            Agendar Llamada
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 9 — CASOS DE ÉXITO -->
+    <section class="section-py py-32 relative overflow-hidden" id="casos-exito">
+      <div class="absolute inset-0 bg-[#080C14]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(79,110,247,0.08)_0%,transparent_70%)]"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16 md:mb-20">
+          <p class="text-[10px] font-headline tracking-[0.4em] uppercase text-electric-orange mb-4">Nuestra Trayectoria</p>
+          <h2 class="text-4xl md:text-5xl font-headline font-black">Casos de <span class="text-electric-orange">Éxito</span></h2>
+          <div class="mt-6 w-16 h-px bg-gradient-to-r from-electric-orange to-transparent mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div class="group relative rounded-3xl border border-white/5 bg-gradient-to-b from-white/[0.04] to-transparent p-6 md:p-8 flex flex-col items-center text-center hover:border-electric-orange/30 transition-all duration-500 hover:-translate-y-1">
+            <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background:radial-gradient(circle at 50% 0%,rgba(255,92,26,0.06) 0%,transparent 70%)"></div>
+            <div class="caso-foto-wrap">
+              <div class="absolute inset-0 rounded-[1.25rem] border-2 border-dashed border-electric-orange/40 group-hover:rotate-180 transition-transform duration-[4000ms]"></div>
+              <div class="foto-inner border border-white/10 bg-navy-deep">
+                <img src="assets/img/natalia-abogados1.webp" alt="Natalía & Abogados" width="160" height="160" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+            <h4 class="text-lg md:text-xl font-black text-white mb-1">Natalía & Abogados</h4>
+            <p class="text-electric-orange font-headline text-[9px] tracking-[0.35em] uppercase">Sector Jurídico</p>
+            <p class="text-white/60 text-xs mt-4 leading-relaxed">Potenciamos su marca personal mediante una estrategia de posicionamiento y formación en ventas. Desarrollamos una landing page enfocada en conversión, logrando aumentar su visibilidad y atraer nuevos clientes.</p>
+            <div class="mt-4 w-8 h-px bg-electric-orange/40 mx-auto"></div>
+          </div>
+
+          <div class="group relative rounded-3xl border border-white/5 bg-gradient-to-b from-white/[0.04] to-transparent p-6 md:p-8 flex flex-col items-center text-center hover:border-indigo-vibrant/30 transition-all duration-500 hover:-translate-y-1">
+            <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background:radial-gradient(circle at 50% 0%,rgba(79,110,247,0.06) 0%,transparent 70%)"></div>
+            <div class="caso-foto-wrap">
+              <div class="absolute inset-0 rounded-[1.25rem] border-2 border-dashed border-indigo-vibrant/40 group-hover:rotate-[-180deg] transition-transform duration-[4000ms]"></div>
+              <div class="foto-inner border border-white/10 bg-navy-deep">
+                <img src="assets/img/punto-final.webp" alt="Punto Final" width="160" height="160" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+            <h4 class="text-lg md:text-xl font-black text-white mb-1">Punto Final</h4>
+            <p class="text-indigo-vibrant font-headline text-[9px] tracking-[0.35em] uppercase">Sector Financiero</p>
+            <p class="text-white/60 text-xs mt-4 leading-relaxed">Implementamos una estrategia de marketing digital y producción audiovisual para fortalecer su presencia en línea. Logramos mejorar su posicionamiento y construir una comunidad activa alrededor de la marca.</p>
+            <div class="mt-4 w-8 h-px bg-indigo-vibrant/40 mx-auto"></div>
+          </div>
+
+          <div class="group relative rounded-3xl border border-white/5 bg-gradient-to-b from-white/[0.04] to-transparent p-6 md:p-8 flex flex-col items-center text-center hover:border-white/20 transition-all duration-500 hover:-translate-y-1">
+            <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background:radial-gradient(circle at 50% 0%,rgba(255,255,255,0.03) 0%,transparent 70%)"></div>
+            <div class="caso-foto-wrap">
+              <div class="absolute inset-0 rounded-[1.25rem] border-2 border-dashed border-white/20 group-hover:rotate-180 transition-transform duration-[4000ms]"></div>
+              <div class="foto-inner border border-white/10 bg-navy-deep">
+                <img src="assets/img/inalea.webp" alt="INALEA - Sector Humanitario" width="160" height="160" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+            <h4 class="text-lg md:text-xl font-black text-white mb-1">INALEA</h4>
+            <p class="text-white/50 font-headline text-[9px] tracking-[0.35em] uppercase">Sector Humanitario</p>
+            <p class="text-white/60 text-xs mt-4 leading-relaxed">Potenciamos su impacto con producción audiovisual y estrategias de venta en eventos. Transformamos la presencia social en autoridad de marca, logrando conectar con audiencias y convirtiendo la visibilidad en resultados reales.</p>
+            <div class="mt-4 w-8 h-px bg-white/20 mx-auto"></div>
+          </div>
+
+          <div class="group relative rounded-3xl border border-white/5 bg-gradient-to-b from-white/[0.04] to-transparent p-6 md:p-8 flex flex-col items-center text-center hover:border-teal-400/30 transition-all duration-500 hover:-translate-y-1">
+            <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background:radial-gradient(circle at 50% 0%,rgba(20,184,166,0.06) 0%,transparent 70%)"></div>
+            <div class="caso-foto-wrap">
+              <div class="absolute inset-0 rounded-[1.25rem] border-2 border-dashed border-teal-400/40 group-hover:rotate-[-180deg] transition-transform duration-[4000ms]"></div>
+              <div class="foto-inner border border-white/10 bg-navy-deep">
+                <img src="assets/img/lookin-wellnes.webp" alt="LookIn - E-Commerce" width="160" height="160" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+            <h4 class="text-lg md:text-xl font-black text-white mb-1">LookIn</h4>
+            <p class="text-teal-400 font-headline text-[9px] tracking-[0.35em] uppercase">SECTOR E-COMMERCE</p>
+            <p class="text-white/60 text-xs mt-4 leading-relaxed">Transformamos una operación de dropshipping tradicional en una maquinaria de facturación escalable. Más que un diseño web, construimos un embudo de conversión de alto impacto técnico y comercial.</p>
+            <div class="mt-4 w-8 h-px bg-teal-400/40 mx-auto"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 10 — CTA FINAL -->
+    <section class="section-py py-32 relative bg-[#0A0A0B] overflow-hidden">
+      <div class="absolute inset-0 bg-hero-radial opacity-30 pointer-events-none"></div>
+      <div class="max-w-5xl mx-auto px-4 md:px-8 text-center relative z-10">
+        <h2 class="cta-title text-4xl md:text-5xl lg:text-7xl font-headline font-black mb-8 leading-[0.9] tracking-tighter text-white uppercase">
+          Tu competencia ya se está <br>
+          <span class="text-electric-orange not-italic">automatizando.</span>
+        </h2>
+        <p class="text-lg md:text-xl lg:text-2xl text-white/60 mb-16 md:mb-20 font-light max-w-2xl mx-auto leading-relaxed">
+          ¿Vas a liderar el cambio o a ver cómo ocurre?
+        </p>
+        <div class="cta-grid grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-16 md:mb-24 max-w-2xl mx-auto">
+          <div class="flex flex-col items-center md:items-start gap-3 border-l border-electric-orange/30 pl-6">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-electric-orange text-2xl">speed</span>
+              <div class="font-black text-xl text-white uppercase tracking-tight">Despliegue ágil</div>
+            </div>
+            <div class="text-[10px] text-white/40 uppercase tracking-[0.3em] font-light">Entrega de MVP</div>
+          </div>
+          <div class="flex flex-col items-center md:items-start gap-3 border-l border-electric-orange/30 pl-6">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-electric-orange text-2xl">verified_user</span>
+              <div class="font-black text-xl text-white uppercase tracking-tight">SOPORTE 24/7</div>
+            </div>
+            <div class="text-[10px] text-white/40 uppercase tracking-[0.3em] font-light">Garantía Técnica</div>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button id="open-proto-form" type="button"
+            class="group relative px-8 md:px-12 py-4 border border-white/10 rounded-full transition-all duration-500 hover:border-electric-orange hover:bg-electric-orange/10">
+            <span class="relative z-10 text-[11px] font-black tracking-[0.5em] text-white uppercase">
+              Iniciar Prototipo
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL FORMULARIO -->
+    <div id="proto-modal" class="fixed inset-0 z-[200] hidden overflow-y-auto" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-sm overlay" aria-hidden="true"></div>
+      <div class="relative z-10 min-h-full flex items-center justify-center px-3 md:px-4 py-6 md:py-10">
+        <div class="modal-inner glass-card rounded-[2rem] md:rounded-[2.5rem] border border-white/10 overflow-hidden w-full max-w-2xl">
+
+          <div class="p-5 md:p-6 flex items-start justify-between gap-4 md:gap-6 border-b border-white/5">
+            <div>
+              <h3 id="modal-title" class="text-xl md:text-2xl font-headline font-black text-electric-orange">Solicitar Prototipo</h3>
+              <p class="text-font-white text-xs md:text-sm mt-1">Selecciona el plan y completa tus datos. Te abrimos WhatsApp con el mensaje listo.</p>
+            </div>
+            <button id="close-proto-form" type="button"
+              class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center flex-shrink-0"
+              aria-label="Cerrar modal">
+              <span class="material-symbols-outlined text-lg" aria-hidden="true">close</span>
+            </button>
+          </div>
+
+          <form id="proto-form" class="p-4 md:p-6 space-y-4 md:space-y-5" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+
+              <div class="sm:col-span-2">
+                <label for="plan" class="block text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-2">Plan que deseas adquirir</label>
+                <select id="plan" name="plan" required class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-orange/40">
+                  <option value="" disabled selected>Selecciona un plan</option>
+                  <option value="Soluciones - servicios">Soluciones De Alta Fidelidad</option>
+                  <option value="Apps - hibridas">Aplicaciones Móviles Híbridas</option>
+                  <option value="Ai - Agentes de IA">Automatizaciones de IA Proactivos</option>
+                  <option value="Ecosistema - Market-Tech 360">Ecosistema - Market-Tech 360</option>
+                  <option value="Plan 1 Web - Frontend Básico">Plan 1 - Web Frontend Básico</option>
+                  <option value="Plan 2 Web - Frontend + Backend Ligero">Plan 2 - Web Frontend + Backend Ligero</option>
+                  <option value="Plan 3 Web - Full Stack">Plan 3 - Web Full Stack</option>
+                  <option value="Plan 4 Web - Empresarial Completo">Plan 4 - Web Empresarial Completo</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="nombre" class="block text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-2">Nombre</label>
+                <input id="nombre" name="nombre" required type="text" placeholder="Tu nombre" autocomplete="name" class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-orange/40" />
+              </div>
+
+              <div>
+                <label for="whatsapp" class="block text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-2">WhatsApp</label>
+                <input id="whatsapp" name="whatsapp" required type="tel" placeholder="+57 3XX XXX XXXX" autocomplete="tel" class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-orange/40" />
+              </div>
+
+              <div>
+                <label for="email" class="block text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-2">Email (opcional)</label>
+                <input id="email" name="email" type="email" placeholder="tucorreo@dominio.com" autocomplete="email" class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-orange/40" />
+              </div>
+
+              <div>
+                <label for="ciudad" class="block text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-2">Ciudad (opcional)</label>
+                <input id="ciudad" name="ciudad" type="text" placeholder="Ej: Manizales" autocomplete="address-level2" class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-orange/40" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <div class="sm:col-span-2">
+                <label for="servicio" class="block text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-2">¿Qué deseas construir / resolver?</label>
+                <textarea id="servicio" name="servicio" required rows="3" placeholder="Cuéntanos el objetivo, sector y qué necesitas para escalar." class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-electric-orange/40"></textarea>
+              </div>
+
+              <div class="sm:col-span-2 w-full flex flex-col items-center justify-center py-4">
+                <div class="w-full">
+                  <label for="presupuesto" class="block text-center text-xs uppercase tracking-[0.25em] text-white/60 font-headline font-bold mb-3">Presupuesto estimado</label>
+                  <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <span class="text-white/40 font-bold text-lg" aria-hidden="true">$</span>
+                    </div>
+                    <input
+                      type="text"
+                      id="presupuesto"
+                      name="presupuesto"
+                      inputmode="numeric"
+                      placeholder="5000000"
+                      required
+                      oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                      class="w-full block rounded-xl bg-white/5 border border-white/10 text-white text-lg pl-10 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-electric-orange/40 focus:bg-white/10 transition-all placeholder:text-white/20" />
+                  </div>
+                  <p class="mt-3 text-center text-[11px] text-white/30 uppercase tracking-widest">Ingresa el valor numérico sin puntos ni comas</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <input id="consent" name="consent" type="checkbox" required class="mt-1 w-5 h-5 rounded bg-white/5 border border-white/10 accent-electric-orange" />
+              <label for="consent" class="text-xs md:text-sm text-font-white leading-relaxed">Acepto que TECLOOK me contacte por WhatsApp con la información de este formulario.</label>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-3 pt-2">
+              <button id="cancel-proto" type="button" class="px-6 md:px-8 py-3 md:py-4 rounded-2xl border border-white/10 font-black tracking-widest text-xs hover:bg-white/5 transition-colors uppercase">Cancelar</button>
+              <button type="submit" class="px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-electric-orange text-white font-black tracking-widest text-xs hover:brightness-110 shadow-electric-orange/20 transition-all uppercase">Enviar por WhatsApp</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-deep border-t border-white/5 py-12 md:py-16 px-4 md:px-8">
+    <div class="footer-inner max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-center">
+      <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline text-center md:text-left"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
+      <div class="flex justify-center gap-6 md:gap-8 text-[10px] font-headline tracking-[0.3em] uppercase font-bold text-white/40">
+        <a class="hover:text-electric-orange transition-colors" href="legal/privacidad.html">Aviso Legal</a>
+        <a class="hover:text-electric-orange transition-colors" href="legal/privacidad.html">Privacidad</a>
+        <a class="hover:text-electric-orange transition-colors" href="legal/privacidad.html">Cookies</a>
+      </div>
+      <div class="text-center md:text-right text-[10px] font-headline tracking-[0.3em] uppercase text-white/20">© 2026 TECLOOK ECOSISTEMA DIGITAL.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var modal    = document.getElementById('proto-modal');
+      var openBtn  = document.getElementById('open-proto-form');
+      var closeBtn = document.getElementById('close-proto-form');
+      var cancelBtn= document.getElementById('cancel-proto');
+      var form     = document.getElementById('proto-form');
+      var lastFocus;
+
+      /* Todos los elementos enfocables dentro del modal */
+      function getFocusable() {
+        return Array.from(modal.querySelectorAll(
+          'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])'
+        ));
+      }
+
+      function openModal() {
+        if (!modal) return;
+        lastFocus = document.activeElement;
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        /* Mover foco al primer elemento interactivo del modal */
+        var focusable = getFocusable();
+        if (focusable.length) focusable[0].focus();
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        /* Devolver foco al elemento que abrió el modal */
+        if (lastFocus) lastFocus.focus();
+      }
+
+      /* Focus trap dentro del modal */
+      if (modal) {
+        modal.addEventListener('keydown', function (e) {
+          if (e.key !== 'Tab') return;
+          var focusable = getFocusable();
+          var first = focusable[0];
+          var last  = focusable[focusable.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+          } else {
+            if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+          }
+        });
+      }
+
+      if (openBtn)  openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn)cancelBtn.addEventListener('click', closeModal);
+      if (modal)    modal.addEventListener('click', function (e) {
+        if (e.target && e.target.classList && e.target.classList.contains('overlay')) closeModal();
+      });
+
+      /* ESC cierra cualquier overlay abierto */
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { closeModal(); }
+      });
+
+      /* Formulario → WhatsApp */
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var phone = '573156090975';
+        function val(id) { var el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
+        var plan       = val('plan');
+        var nombre     = val('nombre');
+        var whatsapp   = val('whatsapp');
+        var email      = val('email');
+        var ciudad     = val('ciudad');
+        var servicio   = val('servicio');
+        var presupuesto= val('presupuesto');
+        var message = [
+          'vengo del Ecosistema de Teclook', '',
+          'Plan: '       + plan,
+          'Nombre: '     + nombre,
+          'WhatsApp: '   + whatsapp,
+          'Email: '      + (email || '-'),
+          'Ciudad: '     + (ciudad || '-'),
+          'Servicio: '   + servicio,
+          'Presupuesto: '+ presupuesto
+        ].join('\n');
+        window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+        closeModal();
+      });
+    })();
+  </script>
+
+</body>
+</html>
