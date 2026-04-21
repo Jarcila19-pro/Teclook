@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Allow access to CSS and JS
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/img/
+
+# Block access to sensitive files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+
+# Sitemap
+Sitemap: https://teclook.pro/sitemap.xml
