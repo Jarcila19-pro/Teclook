@@ -12,4 +12,4 @@ Disallow: /private/
 Disallow: /config/
 
 # Sitemap
-Sitemap: https://teclook.pro/sitemap.xml
+Sitemap: https://teclook.com.co/sitemap.xml
