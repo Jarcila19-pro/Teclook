@@ -8,7 +8,7 @@ const urlsToCache = [
     '/assets/js/scripts.js',
     '/assets/js/tailwind-config.js',
     '/assets/img/logotec.png',
-    '/assets/img/bg-mz-caldas.webp',
+    '/assets/img/fondo-tec.webp',
     '/manifest.json',
     'https://cdn.tailwindcss.com?plugins=forms,container-queries',
     'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap',
