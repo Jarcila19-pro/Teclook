@@ -15,7 +15,7 @@ const urlsToCache = [
     'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap'
 ];
 
-// Instalación
+// Instalaciónaa
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
