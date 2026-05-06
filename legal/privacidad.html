@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-  <script src="../assets/js/scripts.js"></script>
+  <script src="https://teclook.com.co/assets/js/scripts.js"></script>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script src="../assets/js/tailwind-config.js"></script>
+  <script src="https://teclook.com.co/assets/js/tailwind-config.js"></script>
 
   <!-- SEO -->
   <title>Política de Tratamiento de Datos Personales | TECLOOK</title>
@@ -34,10 +34,34 @@
   <!-- Tailwind + config -->
 
   <!-- Favicon -->
-  <link rel="icon" href="../assets/img/logoteclook.png" type="image/png" />
+  <link rel="icon" href="https://teclook.com.co/assets/img/logoteclook.png" type="image/png" />
 
   <!-- Estilos globales (burger, glass, etc. ya incluidos aquí) -->
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="https://teclook.com.co/assets/css/styles.css">
+
+  <!-- Google Translate Protection -->
+  <style>
+    /* data-icon: GT never touches data-* attributes */
+    .material-symbols-outlined[data-icon]::before {
+      content: attr(data-icon);
+      font-family: 'Material Symbols Outlined' !important;
+      font-style: normal !important;
+      font-weight: normal !important;
+      text-transform: none !important;
+      letter-spacing: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    /* GT wraps text in <font> - prevent layout breaks */
+    font[face], .flex > font, .grid > font,
+    .inline-flex > font, [class*="flex"] > font {
+      display: contents !important;
+    }
+    /* Protect brand */
+    [translate="no"] { unicode-bidi: isolate; }
+  </style>
 </head>
 
 <body class="bg-surface selection:bg-electric-orange selection:text-white">
@@ -46,8 +70,8 @@
 <nav class="fixed top-0 w-full z-[100] bg-navy-deep/60 backdrop-blur-2xl border-b border-white/5">
   <div class="flex justify-between items-center px-6 py-2 max-w-7xl mx-auto">
     <div class="text-lg font-black tracking-tighter text-white font-headline flex items-center gap-2">
-      <img src="../assets/img/logoteclook.png" alt="TECLOOK Logo" width="40" height="40" style="object-fit:contain;" />
-      <div class="flex items-center">
+      <img src="https://teclook.com.co/assets/img/logoteclook.png" alt="TECLOOK Logo" width="40" height="40" style="object-fit:contain;" />
+      <div class="flex items-center" translate="no">
           <span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span>
         </div>
     </div>
@@ -148,17 +172,17 @@
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
           <div class="bg-surface-container-low p-6 border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
-            <span class="material-symbols-outlined text-font-white mb-4">location_on</span>
+            <span class="notranslate material-symbols-outlined text-font-white mb-4" translate="no" aria-hidden="true" data-icon="location_on"></span>
             <p class="text-[10px] font-label font-black uppercase tracking-[0.2em] text-electric-orange mb-2">Domicilio Principal</p>
             <p class="text-on-surface font-headline font-medium">Manizales, Caldas, Colombia</p>
           </div>
           <div class="bg-surface-container-low p-6 border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
-            <span class="material-symbols-outlined text-font-white mb-4">mail</span>
+            <span class="notranslate material-symbols-outlined text-font-white mb-4" translate="no" aria-hidden="true" data-icon="mail"></span>
             <p class="text-[10px] font-label font-black uppercase tracking-[0.2em] text-electric-orange mb-2">Correo Electrónico</p>
             <p class="text-on-surface font-headline font-medium break-all">teclookempresa@gmail.com</p>
           </div>
           <div class="bg-surface-container-low p-6 border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300 flex flex-col items-start">
-            <span class="material-symbols-outlined text-font-white mb-4 block">call</span>
+            <span class="notranslate material-symbols-outlined text-font-white mb-4 block" translate="no" aria-hidden="true" data-icon="call"></span>
             <p class="text-[10px] font-label font-black uppercase tracking-[0.2em] text-electric-orange mb-2">Teléfono de contacto</p>
             <p class="text-on-surface font-headline font-medium">315 609 0975</p>
           </div>
@@ -178,21 +202,21 @@
         <ul class="grid grid-cols-1 gap-3 max-w-3xl">
           <li class="flex flex-col md:flex-row md:items-center gap-4 p-5 bg-surface-container-low border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
             <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-electric-orange text-xl">gavel</span>
+              <span class="notranslate material-symbols-outlined text-electric-orange text-xl" translate="no" aria-hidden="true" data-icon="gavel"></span>
               <span class="text-on-surface font-headline font-bold">Constitución Política:</span>
             </div>
             <span class="text-font-white font-body text-sm md:ml-auto">Artículo 15 (Habeas Data).</span>
           </li>
           <li class="flex flex-col md:flex-row md:items-center gap-4 p-5 bg-surface-container-low border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
             <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-electric-orange text-xl">gavel</span>
+              <span class="notranslate material-symbols-outlined text-electric-orange text-xl" translate="no" aria-hidden="true" data-icon="gavel"></span>
               <span class="text-on-surface font-headline font-bold">Ley 1581 de 2012:</span>
             </div>
             <span class="text-font-white font-body text-sm md:ml-auto">Marco general de protección de datos personales.</span>
           </li>
           <li class="flex flex-col md:flex-row md:items-center gap-4 p-5 bg-surface-container-low border border-outline-variant/10 hover:border-primary/20 transition-all duration-300">
             <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-electric-orange text-xl">gavel</span>
+              <span class="notranslate material-symbols-outlined text-electric-orange text-xl" translate="no" aria-hidden="true" data-icon="gavel"></span>
               <span class="text-on-surface font-headline font-bold">Decreto 1377 de 2013:</span>
             </div>
             <span class="text-font-white font-body text-sm md:ml-auto">Reglamentación parcial de la Ley 1581.</span>
@@ -214,7 +238,7 @@
           <div class="group/card relative p-8 bg-surface-container-lowest border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
             <div class="flex items-center gap-4 mb-4">
               <div class="p-2 bg-secondary/10 rounded-lg group-hover/card:bg-secondary group-hover/card:text-on-secondary transition-colors">
-                <span class="material-symbols-outlined text-2xl">settings_suggest</span>
+                <span class="notranslate material-symbols-outlined text-2xl" translate="no" aria-hidden="true" data-icon="settings_suggest"></span>
               </div>
               <h3 class="font-headline font-bold text-on-surface text-lg">Prestación del Servicio</h3>
             </div>
@@ -225,7 +249,7 @@
           <div class="group/card relative p-8 bg-surface-container-lowest border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
             <div class="flex items-center gap-4 mb-4">
               <div class="p-2 bg-secondary/10 rounded-lg group-hover/card:bg-secondary group-hover/card:text-on-secondary transition-colors">
-                <span class="material-symbols-outlined text-2xl">verified_user</span>
+                <span class="notranslate material-symbols-outlined text-2xl" translate="no" aria-hidden="true" data-icon="verified_user"></span>
               </div>
               <h3 class="font-headline font-bold text-on-surface text-lg">Seguridad Avanzada</h3>
             </div>
@@ -236,7 +260,7 @@
           <div class="group/card relative p-8 bg-surface-container-lowest border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
             <div class="flex items-center gap-4 mb-4">
               <div class="p-2 bg-secondary/10 rounded-lg group-hover/card:bg-secondary group-hover/card:text-on-secondary transition-colors">
-                <span class="material-symbols-outlined text-2xl">analytics</span>
+                <span class="notranslate material-symbols-outlined text-2xl" translate="no" aria-hidden="true" data-icon="analytics"></span>
               </div>
               <h3 class="font-headline font-bold text-on-surface text-lg">Analítica e IA</h3>
             </div>
@@ -247,7 +271,7 @@
           <div class="group/card relative p-8 bg-surface-container-lowest border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
             <div class="flex items-center gap-4 mb-4">
               <div class="p-2 bg-secondary/10 rounded-lg group-hover/card:bg-secondary group-hover/card:text-on-secondary transition-colors">
-                <span class="material-symbols-outlined text-2xl">send</span>
+                <span class="notranslate material-symbols-outlined text-2xl" translate="no" aria-hidden="true" data-icon="send"></span>
               </div>
               <h3 class="font-headline font-bold text-on-surface text-lg">Comunicación Crítica</h3>
             </div>
@@ -423,7 +447,7 @@
           <div class="relative p-8 bg-surface-container-low border border-outline-variant/10 hover:border-primary/40 transition-all duration-500 overflow-hidden">
             <div class="flex flex-col gap-6">
               <div class="flex items-center gap-3 mb-2">
-                <span class="material-symbols-outlined text-electric-orange text-sm" style="font-variation-settings:'FILL' 1;">lock</span>
+                <span class="notranslate material-symbols-outlined text-electric-orange text-sm" style="font-variation-settings:'FILL' 1;" translate="no" aria-hidden="true" data-icon="lock"></span>
                 <h3 class="text-font-white font-headline font-black tracking-[0.2em] text-xs uppercase">Cifrado</h3>
               </div>
               <h4 class="font-headline font-bold text-xl text-electric-orange tracking-tight">Cifrado de Extremo a Extremo</h4>
@@ -433,7 +457,7 @@
           <div class="relative p-8 bg-surface-container-low border border-outline-variant/10 hover:border-primary/40 transition-all duration-500 overflow-hidden">
             <div class="flex flex-col gap-6">
               <div class="flex items-center gap-3 mb-2">
-                <span class="material-symbols-outlined text-electric-orange text-sm" style="font-variation-settings:'FILL' 1;">security</span>
+                <span class="notranslate material-symbols-outlined text-electric-orange text-sm" style="font-variation-settings:'FILL' 1;" translate="no" aria-hidden="true" data-icon="security"></span>
                 <h3 class="text-font-white font-headline font-black tracking-[0.2em] text-xs uppercase">Protección</h3>
               </div>
               <h4 class="font-headline font-bold text-xl text-electric-orange tracking-tight">Protocolo Zero Trust</h4>
@@ -450,7 +474,7 @@
 <!-- Footer -->
 <footer class="bg-navy-deep border-t border-white/5 py-12 md:py-16 px-4 md:px-8">
   <div class="footer-inner max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-center">
-    <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline text-center md:text-left"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
+    <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline text-center md:text-left" translate="no"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
     <div class="flex justify-center gap-6 md:gap-8 text-[10px] font-headline tracking-[0.3em] uppercase font-bold text-white/40">
       <a class="hover:text-electric-orange transition-colors" href="#">Aviso Legal</a>
       <a class="hover:text-electric-orange transition-colors" href="#">Privacidad</a>
@@ -475,6 +499,27 @@
     window.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMobileMenu(); });
   })();
 </script>
+
+
+  <script>
+    (function() {
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          m.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1) {
+              var cs = window.getComputedStyle(node);
+              if ((cs.position === 'absolute' || cs.position === 'fixed') && parseFloat(cs.fontSize) > 60) {
+                node.setAttribute('translate', 'no');
+              }
+            }
+          });
+        });
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    })();
+  </script>
 
 </body>
 </html>
