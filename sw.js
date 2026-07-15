@@ -1,27 +1,35 @@
 // Service Worker para cache offline - TECLOOK
-const CACHE_NAME = 'teclook-v1.0.0';
+const CACHE_NAME = 'teclook-v1.2.1';
+function offlineResponse() {
+    return new Response('Offline', {
+        status: 503,
+        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }
+    });
+}
 const urlsToCache = [
     '/',
     '/index.html',
+    '/automatizacion.html',
     '/legal/privacidad.html',
     '/assets/css/styles.min.css',
     '/assets/js/scripts.js',
     '/assets/js/tailwind-config.js',
-    '/assets/img/logotec.png',
+    '/assets/img/logoteclook.png',
     '/assets/img/fondo-tec.webp',
-    '/manifest.json',
-    'https://cdn.tailwindcss.com?plugins=forms,container-queries',
-    'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap',
-    'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap'
+    '/assets/img/bg-ia.jpg',
+    '/assets/img/fondo-auto-procesos-2.png',
+    '/assets/img/marketing%20digital.png',
+    '/assets/img/Gemini_Generated_Image_545pq4545pq4545p_PhotoGrid.png',
+    '/assets/video/ia.mp4',
+    '/manifest.json'
 ];
 
-// Instalaciónaa
+// Instalación — solo pre-cachear assets locales
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => {
-                return cache.addAll(urlsToCache);
-            })
+            .then(cache => cache.addAll(urlsToCache))
+            .then(() => self.skipWaiting())
     );
 });
 
@@ -36,39 +44,39 @@ self.addEventListener('activate', event => {
                     }
                 })
             );
-        })
+        }).then(() => self.clients.claim())
     );
 });
 
-// Fetch - estrategia Cache First para assets, Network First para HTML
+// Fetch
 self.addEventListener('fetch', event => {
+    // Network-first para peticiones de navegación (HTML)
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+                    return response;
+                })
+                .catch(() => caches.match(event.request).then(r => r || caches.match('/index.html')))
+                .catch(() => offlineResponse())
+        );
+        return;
+    }
+
+    // Cache-first para assets locales, stale-while-revalidate para CDN
     event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                // Cache hit - return response
-                if (response) {
-                    return response;
+        caches.match(event.request).then(cached => {
+            const fetched = fetch(event.request).then(response => {
+                if (response && response.status === 200 && response.type === 'basic') {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
                 }
+                return response;
+            }).catch(() => cached || offlineResponse());
 
-                // Clone the request
-                const fetchRequest = event.request.clone();
-
-                return fetch(fetchRequest).then(response => {
-                    // Check if we received a valid response
-                    if (!response || response.status !== 200 || response.type !== 'basic') {
-                        return response;
-                    }
-
-                    // Clone the response
-                    const responseToCache = response.clone();
-
-                    caches.open(CACHE_NAME)
-                        .then(cache => {
-                            cache.put(event.request, responseToCache);
-                        });
-
-                    return response;
-                });
-            })
+            return cached || fetched;
+        }).catch(() => offlineResponse())
     );
 });
