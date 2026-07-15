@@ -1,15 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /sw.js
-
-<<<<<<< HEAD
-=======
-# Block access to sensitive files
 Disallow: /admin/
 Disallow: /private/
 Disallow: /config/
 
->>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38
 Host: https://teclook.com.co
 
 # Sitemap
