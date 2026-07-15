@@ -48,7 +48,11 @@ Si deseas contribuir al proyecto:
 
 ## Licencia
 
+<<<<<<< HEAD
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+=======
+Este proyecto está bajo la Licencia MIT.
+>>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38
 
 ## Contacto
 
@@ -56,6 +60,9 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 - **Teléfono**: 315 609 0975
 - **WhatsApp**: [Enviar mensaje](https://wa.me/573156090975)
 - **Ubicación**: Manizales, Caldas, Colombia
+<<<<<<< HEAD
 
 ---
 
+=======
+>>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38

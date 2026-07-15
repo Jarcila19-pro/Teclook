@@ -71,4 +71,7 @@ tailwind.config = {
     }
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38

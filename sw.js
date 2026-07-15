@@ -1,9 +1,18 @@
 // Service Worker para cache offline - TECLOOK
 const CACHE_NAME = 'teclook-v1.2.1';
+<<<<<<< HEAD
 const OFFLINE_RESPONSE = new Response('Offline', {
     status: 503,
     headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }
 });
+=======
+function offlineResponse() {
+    return new Response('Offline', {
+        status: 503,
+        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }
+    });
+}
+>>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38
 const urlsToCache = [
     '/',
     '/index.html',
@@ -58,7 +67,11 @@ self.addEventListener('fetch', event => {
                     return response;
                 })
                 .catch(() => caches.match(event.request).then(r => r || caches.match('/index.html')))
+<<<<<<< HEAD
                 .catch(() => OFFLINE_RESPONSE)
+=======
+                .catch(() => offlineResponse())
+>>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38
         );
         return;
     }
@@ -72,9 +85,16 @@ self.addEventListener('fetch', event => {
                     caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
                 }
                 return response;
+<<<<<<< HEAD
             }).catch(() => cached || OFFLINE_RESPONSE);
 
             return cached || fetched;
         }).catch(() => OFFLINE_RESPONSE)
+=======
+            }).catch(() => cached || offlineResponse());
+
+            return cached || fetched;
+        }).catch(() => offlineResponse())
+>>>>>>> 7b344bd795ce3bd38a62b0ca92a8806ebfc90f38
     );
 });
