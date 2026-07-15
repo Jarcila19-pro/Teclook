@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /sw.js
+
+Host: https://teclook.com.co
+
+# Sitemap
+Sitemap: https://teclook.com.co/sitemap.xml
