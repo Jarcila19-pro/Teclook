@@ -12,23 +12,46 @@ TECLOOK es un ecosistema digital integral diseñado para potenciar negocios y em
 - **Apps Móviles**: Desarrollo de aplicaciones nativas y web
 - **Consultoría**: Asesoría especializada en transformación digital
 
+## Stack Tecnológico
+
+- **Frontend**: HTML5, Tailwind CSS, AlpineJS
+- **Animaciones**: Lottie (dotlottie-player), CSS animations
+- **PWA**: Service Worker, Web Manifest
+- **SEO**: Schema.org (LocalBusiness + WebSite), Open Graph, Twitter Cards
 
 ## Estructura del Proyecto
 
 ```
 TECLOOK/
-├── index.html          # Página principal
+├── index.html              # Página principal
+├── automatizacion.html     # Landing de automatización con IA
+├── sw.js                   # Service Worker (PWA)
+├── manifest.json           # Web App Manifest
+├── robots.txt              # Reglas para crawlers
+├── sitemap.xml             # Sitemap XML
+├── CNAME                   # Configuración de dominio
 ├── assets/
 │   ├── css/
-│   │   └── styles.css  # Estilos principales
+│   │   ├── styles.css      # Estilos fuente
+│   │   └── styles.min.css  # Estilos minificados
 │   ├── js/
-│   │   ├── scripts.js  # JavaScript principal
-│   │   └── tailwind-config.js
-│   └── img/            # Imágenes y recursos
+│   │   ├── scripts.js      # Lógica principal (burger menu, loader)
+│   │   └── tailwind-config.js  # Configuración de Tailwind
+│   ├── img/                # Imágenes y recursos estáticos
+│   ├── video/              # Videos
+│   └── animations/         # Animaciones Lottie
 ├── legal/
-│   └── privacidad.html # Política de privacidad
-└── readme.md           # Este archivo
+│   └── privacidad.html     # Política de privacidad
+└── readme.md               # Este archivo
 ```
+
+## Páginas
+
+| Archivo | Descripción |
+|---------|-------------|
+| `index.html` | Página principal con portafolio, ecosistema, planes y formulario |
+| `automatizacion.html` | Landing page de automatización con IA, agentes virtuales y procesos |
+| `legal/privacidad.html` | Política de privacidad, términos legales y cookies |
 
 ## Uso
 

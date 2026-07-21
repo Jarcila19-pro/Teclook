@@ -1,11 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /sw.js
-Disallow: /admin/
-Disallow: /private/
-Disallow: /config/
-
-Host: https://teclook.com.co
 
 # Sitemap
 Sitemap: https://teclook.com.co/sitemap.xml

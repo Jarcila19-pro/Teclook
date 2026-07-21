@@ -23,14 +23,17 @@ const urlsToCache = [
     '/assets/img/marketing%20digital.png',
     '/assets/img/Gemini_Generated_Image_545pq4545pq4545p_PhotoGrid.png',
     '/assets/video/ia.mp4',
+    '/assets/animations/hero-robot.json',
     '/manifest.json'
 ];
 
-// Instalación — solo pre-cachear assets locales
+// Instalación — pre-cachear assets de forma resiliente
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
+            .then(cache => Promise.allSettled(
+                urlsToCache.map(url => cache.add(url).catch(() => {}))
+            ))
             .then(() => self.skipWaiting())
     );
 });

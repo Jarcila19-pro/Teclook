@@ -18,8 +18,8 @@
     }
   </script>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <script src="../assets/js/tailwind-config.js"></script>
+  <script defer src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script defer src="../assets/js/tailwind-config.js"></script>
 
   <!-- SEO -->
   <title>Política de Tratamiento de Datos Personales | TECLOOK</title>
@@ -32,7 +32,8 @@
   <meta property="og:url"         content="https://teclook.com.co/legal/privacidad.html" />
   <meta property="og:title"       content="Política de Privacidad | TECLOOK" />
   <meta property="og:description" content="Política de privacidad y tratamiento de datos personales de TECLOOK, agencia de marketing digital en Manizales." />
-  <meta property="og:image"       content="https://teclook.com.co/assets/img/logoteclook.png" />
+  <meta property="og:image" content="https://teclook.com.co/assets/img/logoteclook.png" />
+  <meta property="og:image:alt" content="TECLOOK - Política de Privacidad" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name"   content="TECLOOK" />
@@ -40,18 +41,47 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@teclook_" />
   <meta name="twitter:title" content="Política de Privacidad | TECLOOK" />
   <meta name="twitter:description" content="Política de privacidad y tratamiento de datos personales de TECLOOK, agencia de marketing digital en Manizales." />
   <meta name="twitter:image" content="https://teclook.com.co/assets/img/logoteclook.png" />
+
+  <!-- Schema.org — WebPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://teclook.com.co/legal/privacidad.html#webpage",
+        "url": "https://teclook.com.co/legal/privacidad.html",
+        "name": "Política de Privacidad | TECLOOK",
+        "description": "Política de privacidad y tratamiento de datos personales de TECLOOK, agencia de marketing digital en Manizales.",
+        "isPartOf": { "@id": "https://teclook.com.co/#website" },
+        "about": { "@id": "https://teclook.com.co/#organization" },
+        "dateModified": "2026-07-21"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://teclook.com.co/" },
+          { "@type": "ListItem", "position": 2, "name": "Política de Privacidad", "item": "https://teclook.com.co/legal/privacidad.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
 
-  <!-- Fuentes reducidas -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" />
+  <!-- Fuentes — cargadas async para no bloquear render -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" media="print" onload="this.media='all'" />
 
   <!-- Favicon -->
   <link rel="icon" href="https://teclook.com.co/assets/img/logoteclook.png" type="image/png" />
@@ -76,7 +106,20 @@
   </div>
 </div>
 
-<div id="page-wrap">
+<!-- MENÚ MÓVIL -->
+<div id="mobile-menu" role="dialog" aria-label="Menú principal" aria-modal="true">
+  <button class="close-menu-btn" aria-label="Cerrar menú">&#10005;</button>
+  <a href="../index.html">Soluciones</a>
+  <a href="../index.html#ecosistema">Ecosistema</a>
+  <a href="../index.html#ia">Agentes IA</a>
+  <a href="../index.html#apps">Apps</a>
+  <a href="../index.html#planes">Planes</a>
+  <a href="https://wa.me/573156090975?text=Vengo%20del%20Ecosistema%20de%20Teclook%20y%20Quiero%20Mi%20Prototipo"
+    target="_blank" rel="noopener noreferrer"
+    style="color:#FF5C1A;margin-top:1rem;font-size:0.85rem;">
+    &#9654; Empieza Ya
+  </a>
+</div>
 
 <!-- NAV -->
 <nav class="fixed top-0 w-full z-[100] bg-[#0a0e16] border-b border-white/5" role="navigation" aria-label="Navegación principal">
@@ -102,7 +145,7 @@
         class="group relative hidden lg:flex items-center gap-4 px-5 py-2 rounded-sm border border-electric-orange/40 bg-white/[0.02] transition-all duration-700">
         <div class="absolute inset-y-0 left-0 w-[1px] bg-electric-orange/0 group-hover:bg-electric-orange/100 transition-all duration-700"></div>
         <span class="text-[8px] md:text-[9px] tracking-[0.5em] font-light text-white/50 group-hover:text-white uppercase transition-colors duration-500">
-          <span class="text-electric-orange/60">Empieza Ya</span>
+          Empieza Ya
         </span>
         <div class="flex gap-1">
           <div class="w-1 h-1 rounded-full bg-white/10 group-hover:bg-electric-orange transition-colors duration-300"></div>
@@ -118,20 +161,7 @@
   </div>
 </nav>
 
-<!-- MENÚ MÓVIL -->
-<div id="mobile-menu" role="dialog" aria-label="Menú principal" aria-modal="true">
-  <button class="close-menu-btn" aria-label="Cerrar menú">&#10005;</button>
-  <a href="../index.html">Soluciones</a>
-  <a href="../index.html#ecosistema">Ecosistema</a>
-  <a href="../index.html#ia">Agentes IA</a>
-  <a href="../index.html#apps">Apps</a>
-  <a href="../index.html#planes">Planes</a>
-  <a href="https://wa.me/573156090975?text=Vengo%20del%20Ecosistema%20de%20Teclook%20y%20Quiero%20Mi%20Prototipo"
-    target="_blank" rel="noopener noreferrer"
-    style="color:#FF5C1A;margin-top:1rem;font-size:0.85rem;">
-    ▶ Empieza Ya
-  </a>
-</div>
+<div id="page-wrap">
 
 <main id="main-content" class="pt-48 pb-32 px-6 bg-gradient-to-b from-[#0a0e16] via-background to-background">
   <div class="max-w-4xl mx-auto">
@@ -487,13 +517,23 @@
 <!-- Footer -->
 <footer class="bg-navy-deep border-t border-white/5 py-12 md:py-16 px-4 md:px-8">
   <div class="footer-inner max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-center">
-    <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline text-center md:text-left" translate="no"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
+    <div class="flex flex-col items-center md:items-start gap-5">
+      <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline" translate="no"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
+      <div class="flex items-center gap-3">
+        <a href="https://www.instagram.com/teclook_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
+          <svg class="w-5 h-5 fill-white/50 group-hover:fill-electric-orange transition-colors duration-300" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.228.415.56.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.058 1.266.069 1.646.069 4.849 0 3.205-.012 3.584-.069 4.849-.054 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.381-.42.419-.821.679-1.381.896-.423.164-1.058.36-2.227.413-1.266.058-1.646.069-4.849.069-3.204 0-3.584-.012-4.849-.069-1.17-.054-1.805-.249-2.227-.413-.56-.217-.96-.477-1.381-.896-.42-.42-.679-.821-.896-1.381-.164-.422-.36-1.057-.413-2.227-.058-1.266-.069-1.646-.069-4.849 0-3.204.012-3.584.069-4.849.054-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.381.42-.42.821-.679 1.381-.896.423-.166 1.058-.361 2.227-.415 1.266-.058 1.646-.07 4.849-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.902.13 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.058 1.277.261 2.15.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.338 1.384-2.126.297-.763.5-1.636.558-2.913.058-1.28.072-1.688.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.32 1.347 20.651.935 19.86.63c-.763-.297-1.636-.5-2.913-.558C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Tecnoemprender22" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
+          <svg class="w-5 h-5 fill-white/50 group-hover:fill-electric-orange transition-colors duration-300" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
     <div class="flex justify-center gap-6 md:gap-8 text-[10px] font-headline tracking-[0.3em] uppercase font-bold text-white/40">
       <a class="hover:text-electric-orange transition-colors" href="privacidad.html">Aviso Legal</a>
       <a class="hover:text-electric-orange transition-colors" href="privacidad.html">Privacidad</a>
       <a class="hover:text-electric-orange transition-colors" href="privacidad.html">Cookies</a>
     </div>
-    <div class="text-center md:text-right text-[10px] font-headline tracking-[0.3em] uppercase text-white">© 2026 TECLOOK ECOSISTEMA DIGITAL.</div>
+    <div class="text-center md:text-right text-[10px] font-headline tracking-[0.3em] uppercase text-white">&copy; 2026 TECLOOK ECOSISTEMA DIGITAL.</div>
   </div>
 </footer>
 

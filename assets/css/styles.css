@@ -1,4 +1,4 @@
-/* 
+/*
    TECLOOK — styles.css (optimizado)
    Eliminado bloque body duplicado
    Añadido focus-trap para modal (accesibilidad)
@@ -10,6 +10,80 @@
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   display: inline-block;
   vertical-align: middle;
+}
+
+/* 1b. Google Translate — proteger iconos Material */
+.material-symbols-outlined[data-icon]::before {
+  content: attr(data-icon);
+  font-family: 'Material Symbols Outlined' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+font[face], .flex > font, .grid > font,
+.inline-flex > font, [class*="flex"] > font {
+  display: contents !important;
+}
+
+[translate="no"] { unicode-bidi: isolate; }
+
+/* 1c. LOADER — animación de entrada */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #060a14;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#loader .l-img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  will-change: transform, filter, opacity;
+}
+@keyframes melt {
+  0%   { transform: scaleY(1) translateY(0); filter: blur(0px); opacity: 1; }
+  40%  { transform: scaleY(1.8) translateY(15px); filter: blur(3px); opacity: 0.9; }
+  70%  { transform: scaleY(3) translateY(35px); filter: blur(8px); opacity: 0.5; }
+  100% { transform: scaleY(4.5) translateY(60px); filter: blur(15px); opacity: 0; }
+}
+#loader.melt .l-img {
+  animation: melt 1s ease-in forwards;
+}
+
+/* 1d. PAGE WRAP — fade-in */
+#page-wrap {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+html.loaded #page-wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1e. FADE SLIDE UP — hero animations */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero-fade {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* 2. Estilo Base del Cuerpo */
@@ -24,7 +98,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 4. Scrollbar */
+/* 3. Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -67,14 +141,6 @@ img::selection {
 /* 
    EFECTOS DE TEXTO
  */
-.text-glow-orange {
-  text-shadow: 0 0 30px rgba(255, 92, 26, 0.5);
-}
-
-.text-glow-teal {
-  text-shadow: 0 0 30px rgba(20, 184, 166, 0.5);
-}
-
 .bg-hero-radial {
   background: radial-gradient(circle at 50% 50%, rgba(255, 92, 26, 0.08) 0%, #080C14 70%);
 }
@@ -110,23 +176,12 @@ img::selection {
    ANIMACIONES
 */
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-20px) rotate(2deg);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.pricing-glow {
-  box-shadow: 0 0 60px -10px rgba(255, 92, 26, 0.4);
+.float-anim {
+  animation: float 4s ease-in-out infinite;
 }
 
 /* 
@@ -386,6 +441,9 @@ img::selection {
 .hero-clip-bottom {
   clip-path: ellipse(140% 82% at 55% 0%);
 }
+@media (max-width: 767px) {
+  .hero-clip-bottom { clip-path: none; }
+}
 
 /* 
     ADN IA — imagen siempre visible
@@ -416,6 +474,19 @@ img::selection {
 }
 
 /* 
+   MOCKUP PANEL — responsive min-height
+*/
+.mockup-panel {
+  min-height: auto;
+}
+
+@media (min-width: 1024px) {
+  .mockup-panel {
+    min-height: 420px;
+  }
+}
+
+/* 
    MOCKUPS — TELÉFONOS
 */
 .phone-mockup-wrap {
@@ -440,21 +511,52 @@ img::selection {
   margin-top: 2.5rem;
 }
 
+/* MÓVIL (≤640px): apilar verticalmente, phones compactos */
 @media (max-width: 640px) {
   .phone-mockup-wrap {
-    gap: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
   .phone-card {
-    height: 380px;
+    height: auto;
+    min-height: 320px;
+    width: 100%;
+    max-width: 240px;
     border-radius: 2rem;
     border-width: 8px;
   }
+
+  .phone-card-offset {
+    margin-top: 0;
+  }
 }
 
-@media (min-width: 641px) and (max-width: 900px) {
+/* TABLET (641-1023px): apilar verticalmente */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .phone-mockup-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
   .phone-card {
-    height: 440px;
+    height: auto;
+    min-height: 400px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .phone-card-offset {
+    margin-top: 0;
+  }
+}
+
+/* DESKTOP (≥1024px): ajustes menores */
+@media (min-width: 1024px) {
+  .phone-mockup-wrap {
+    justify-content: center;
   }
 }
 

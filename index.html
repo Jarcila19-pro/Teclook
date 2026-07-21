@@ -18,10 +18,10 @@
     }
   </script>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script defer src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <script src="assets/js/tailwind-config.js"></script>
+  <script defer src="assets/js/tailwind-config.js"></script>
 
   <!-- SEO PRIMARIO-->
   <title>Agencia de Marketing Digital en Manizales | Desarrollo Web y SEO - TECLOOK</title>
@@ -37,11 +37,13 @@
   <meta property="og:image" content="https://teclook.com.co/assets/img/logo-con-fondo-teclook.jpeg" />
   <meta property="og:image:secure_url" content="https://teclook.com.co/assets/img/logo-con-fondo-teclook.jpeg" />
   <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="TECLOOK - Agencia de Marketing Digital en Manizales" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="es_CO" />
   <meta property="og:site_name" content="TECLOOK" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@teclook_" />
   <meta name="twitter:title" content="Agencia de Marketing Digital y Software en Manizales | TECLOOK" />
   <meta name="twitter:description" content="Sistema Market-Tech de alto rendimiento. Ingeniería de marca, IA y diseño estratégico para escalabilidad." />
   <meta name="twitter:image" content="https://teclook.com.co/assets/img/logo-con-fondo-teclook.jpeg" />
@@ -74,7 +76,10 @@
         "areaServed": { "@type": "City", "name": "Manizales" },
         "priceRange": "$$",
         "openingHours": "Mo-Fr 08:00-18:00",
-        "sameAs": ["https://wa.me/573156090975"]
+        "sameAs": [
+          "https://www.instagram.com/teclook_/",
+          "https://www.youtube.com/@Tecnoemprender22"
+        ]
       },
       {
         "@type": "WebSite",
@@ -82,6 +87,12 @@
         "url": "https://teclook.com.co/",
         "name": "TECLOOK",
         "publisher": { "@id": "https://teclook.com.co/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://teclook.com.co/" }
+        ]
       }
     ]
   }
@@ -91,11 +102,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-  <!-- FUENTES — reducidas de 8 a 5 variantes de peso -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" />
+  <!-- FUENTES — cargadas async para no bloquear render -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" media="print" onload="this.media='all'" />
 
   <!-- Favicon -->
   <link rel="icon" href="https://teclook.com.co/assets/img/logoteclook.png" type="image/png" />
@@ -530,7 +542,7 @@
           </div>
 
           <!-- Panel derecho: mockups -->
-          <div class="flex flex-1 flex-col justify-center lg:sticky lg:top-32 w-full relative" style="min-height:420px;">
+          <div class="mockup-panel flex flex-1 flex-col justify-center lg:sticky lg:top-32 w-full relative">
 
             <!-- MOCKUP TELEFONOS -->
             <div :class="tab==='apps' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none absolute -z-10'"
@@ -538,66 +550,66 @@
               <div class="phone-card group" style="position:relative;overflow:hidden;border-radius:2rem;">
                 <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                   <div class="absolute inset-0" style="background:radial-gradient(circle at 20% 20%,rgba(79,110,247,0.28),transparent 45%),radial-gradient(circle at 80% 70%,rgba(255,92,26,0.2),transparent 40%),linear-gradient(180deg,#0b1322 0%,#060a12 100%);"></div>
-                  <div class="relative z-10 h-full pl-4 pr-3 pt-10 pb-8 flex flex-col gap-4">
-                    <div class="flex items-center justify-between text-white">
-                      <div>
-                        <p class="text-[10px] uppercase tracking-[0.22em] text-white/60">Dashboard de Ventas</p>
-                        <p class="text-sm font-bold mt-1 leading-tight">Manizales en Tiempo Real</p>
+                    <div class="relative z-10 h-full pl-3 pr-2.5 pt-10 pb-5 sm:pl-4 sm:pr-3 sm:pt-10 sm:pb-8 flex flex-col gap-3 sm:gap-4">
+                      <div class="flex items-center justify-between text-white">
+                        <div>
+                          <p class="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-white/60">Dashboard de Ventas</p>
+                          <p class="text-xs sm:text-sm font-bold mt-1 leading-tight">Manizales en Tiempo Real</p>
+                        </div>
+                      </div>
+                      <div class="flex-1 min-h-0 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-2.5 sm:p-3">
+                        <p class="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] text-white/45 mb-1.5 sm:mb-2">Rendimiento Diario</p>
+                        <div class="flex items-end gap-1 sm:gap-1.5 h-[calc(100%-20px)]">
+                          <div class="w-1.5 sm:w-2 h-6 sm:h-10 rounded-full bg-electric-orange/60"></div>
+                          <div class="w-1.5 sm:w-2 h-8 sm:h-14 rounded-full bg-electric-orange/70"></div>
+                          <div class="w-1.5 sm:w-2 h-12 sm:h-20 rounded-full bg-electric-orange/80"></div>
+                          <div class="w-1.5 sm:w-2 h-16 sm:h-24 rounded-full bg-electric-orange"></div>
+                          <div class="w-1.5 sm:w-2 h-10 sm:h-16 rounded-full bg-electric-orange/70"></div>
+                          <div class="w-1.5 sm:w-2 h-14 sm:h-20 rounded-full bg-electric-orange/90"></div>
+                          <div class="w-1.5 sm:w-2 h-16 sm:h-28 rounded-full bg-electric-orange"></div>
+                          <div class="w-1.5 sm:w-2 h-10 sm:h-16 rounded-full bg-electric-orange/60"></div>
+                          <div class="w-1.5 sm:w-2 h-7 sm:h-12 rounded-full bg-electric-orange/50"></div>
+                        </div>
+                      </div>
+                      <div class="grid grid-cols-3 gap-1.5 sm:gap-2">
+                        <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center">
+                          <div class="flex flex-col items-center gap-0.5 sm:gap-1 text-white"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-electric-orange" translate="no" aria-hidden="true" data-icon="filter_alt"></span><p class="text-[10px] sm:text-[12px] font-bold">128</p></div>
+                        </div>
+                        <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex items-center justify-center">
+                          <div class="flex flex-col items-center gap-0.5 sm:gap-1 text-white"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-indigo-vibrant" translate="no" aria-hidden="true" data-icon="percent"></span><p class="text-[10px] sm:text-[12px] font-bold">14.8%</p></div>
+                        </div>
+                        <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center">
+                          <div class="flex flex-col items-center gap-0.5 sm:gap-1 text-white"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-teal-400" translate="no" aria-hidden="true" data-icon="payments"></span><p class="text-[10px] sm:text-[12px] font-bold">$9.4M</p></div>
+                        </div>
                       </div>
                     </div>
-                    <div class="flex-1 min-h-0 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-3">
-                      <p class="text-[10px] uppercase tracking-[0.2em] text-white/45 mb-2">Rendimiento Diario</p>
-                      <div class="flex items-end gap-1.5 h-[calc(100%-22px)]">
-                        <div class="w-2 h-10 rounded-full bg-electric-orange/60"></div>
-                        <div class="w-2 h-14 rounded-full bg-electric-orange/70"></div>
-                        <div class="w-2 h-20 rounded-full bg-electric-orange/80"></div>
-                        <div class="w-2 h-24 rounded-full bg-electric-orange"></div>
-                        <div class="w-2 h-16 rounded-full bg-electric-orange/70"></div>
-                        <div class="w-2 h-20 rounded-full bg-electric-orange/90"></div>
-                        <div class="w-2 h-28 rounded-full bg-electric-orange"></div>
-                        <div class="w-2 h-16 rounded-full bg-electric-orange/60"></div>
-                        <div class="w-2 h-12 rounded-full bg-electric-orange/50"></div>
-                      </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2">
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center">
-                        <div class="flex flex-col items-center gap-1 text-white"><span class="notranslate material-symbols-outlined text-[14px] text-electric-orange" translate="no" aria-hidden="true" data-icon="filter_alt"></span><p class="text-[12px] font-bold">128</p></div>
-                      </div>
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex items-center justify-center">
-                        <div class="flex flex-col items-center gap-1 text-white"><span class="notranslate material-symbols-outlined text-[14px] text-indigo-vibrant" translate="no" aria-hidden="true" data-icon="percent"></span><p class="text-[12px] font-bold">14.8%</p></div>
-                      </div>
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center">
-                        <div class="flex flex-col items-center gap-1 text-white"><span class="notranslate material-symbols-outlined text-[14px] text-teal-400" translate="no" aria-hidden="true" data-icon="payments"></span><p class="text-[12px] font-bold">$9.4M</p></div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-full z-20"></div>
               </div>
               <div class="phone-card phone-card-offset group" style="position:relative;overflow:hidden;">
                 <div class="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700">
                   <div class="absolute inset-0" style="background:radial-gradient(circle at 75% 20%,rgba(20,184,166,0.2),transparent 45%),radial-gradient(circle at 15% 80%,rgba(79,110,247,0.28),transparent 45%),linear-gradient(180deg,#0a1020 0%,#070b13 100%);"></div>
-                  <div class="relative z-10 h-full px-5 pt-10 pb-8 flex flex-col gap-4 text-white">
+                  <div class="relative z-10 h-full px-4 sm:px-5 pt-6 pb-5 sm:pt-10 sm:pb-8 flex flex-col gap-3 sm:gap-4 text-white">
                     <div class="flex items-start justify-between">
                       <div>
-                        <p class="text-[10px] uppercase tracking-[0.22em] text-white/60">App de Servicio</p>
-                        <p class="text-sm font-bold mt-1 leading-tight">Clientes y Reservas</p>
+                        <p class="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-white/60">App de Servicio</p>
+                        <p class="text-xs sm:text-sm font-bold mt-1 leading-tight">Clientes y Reservas</p>
                       </div>
-                      <div class="px-2.5 py-1 rounded-full bg-indigo-vibrant/90 text-[9px] font-black tracking-wider">EN L&#205;NEA</div>
+                      <div class="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-indigo-vibrant/90 text-[8px] sm:text-[9px] font-black tracking-wider">EN L&#205;NEA</div>
                     </div>
-                    <div class="h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md px-3 py-2.5 flex items-center justify-between">
-                      <div class="flex-1 text-center"><span class="notranslate material-symbols-outlined text-[14px] text-indigo-vibrant mb-0.5" translate="no" aria-hidden="true" data-icon="event_available"></span><p class="text-base font-black leading-none">37</p></div>
-                      <div class="flex-1 text-center"><span class="notranslate material-symbols-outlined text-[14px] text-teal-400 mb-0.5" translate="no" aria-hidden="true" data-icon="verified_user"></span><p class="text-base font-black leading-none">31</p></div>
+                    <div class="h-14 sm:h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md px-2.5 sm:px-3 py-2 sm:py-2.5 flex items-center justify-between">
+                      <div class="flex-1 text-center"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-indigo-vibrant mb-0.5" translate="no" aria-hidden="true" data-icon="event_available"></span><p class="text-sm sm:text-base font-black leading-none">37</p></div>
+                      <div class="flex-1 text-center"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-teal-400 mb-0.5" translate="no" aria-hidden="true" data-icon="verified_user"></span><p class="text-sm sm:text-base font-black leading-none">31</p></div>
                     </div>
-                    <div class="grid grid-cols-4 gap-2">
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[14px] text-electric-orange" translate="no" aria-hidden="true" data-icon="chat"></span><p class="text-[11px] font-bold">OK</p></div>
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[14px] text-indigo-vibrant" translate="no" aria-hidden="true" data-icon="payments"></span><p class="text-[11px] font-bold">99%</p></div>
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[14px] text-teal-400" translate="no" aria-hidden="true" data-icon="star"></span><p class="text-[11px] font-bold">4.8</p></div>
-                      <div class="h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[14px] text-electric-orange" translate="no" aria-hidden="true" data-icon="confirmation_number"></span><p class="text-[11px] font-bold">12</p></div>
+                    <div class="grid grid-cols-4 gap-1.5 sm:gap-2">
+                      <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-electric-orange" translate="no" aria-hidden="true" data-icon="chat"></span><p class="text-[9px] sm:text-[11px] font-bold">OK</p></div>
+                      <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-indigo-vibrant" translate="no" aria-hidden="true" data-icon="payments"></span><p class="text-[9px] sm:text-[11px] font-bold">99%</p></div>
+                      <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.03] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-teal-400" translate="no" aria-hidden="true" data-icon="star"></span><p class="text-[9px] sm:text-[11px] font-bold">4.8</p></div>
+                      <div class="h-11 sm:h-[60px] rounded-xl border border-white/10 bg-white/[0.04] flex flex-col items-center justify-center"><span class="notranslate material-symbols-outlined text-[12px] sm:text-[14px] text-electric-orange" translate="no" aria-hidden="true" data-icon="confirmation_number"></span><p class="text-[9px] sm:text-[11px] font-bold">12</p></div>
                     </div>
-                    <div class="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2.5">
-                      <p class="text-[10px] uppercase tracking-[0.2em] text-white/45 mb-2">Actividad Semanal</p>
-                      <div class="w-full h-[calc(100%-24px)] rounded-xl bg-[linear-gradient(90deg,rgba(79,110,247,0.25)_0%,rgba(79,110,247,0.05)_45%,rgba(255,92,26,0.25)_100%)]"></div>
+                    <div class="flex-1 min-h-0 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2.5">
+                      <p class="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-white/45 mb-1.5 sm:mb-2">Actividad Semanal</p>
+                      <div class="w-full h-[calc(100%-20px)] rounded-xl bg-[linear-gradient(90deg,rgba(79,110,247,0.25)_0%,rgba(79,110,247,0.05)_45%,rgba(255,92,26,0.25)_100%)]"></div>
                     </div>
                   </div>
                 </div>
@@ -947,7 +959,17 @@
   <!-- FOOTER -->
   <footer class="bg-navy-deep border-t border-white/5 py-12 md:py-16 px-4 md:px-8">
     <div class="footer-inner max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-center">
-      <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline text-center md:text-left" translate="no"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
+      <div class="flex flex-col items-center md:items-start gap-5">
+        <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline" translate="no"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/teclook_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
+            <svg class="w-5 h-5 fill-white/50 group-hover:fill-electric-orange transition-colors duration-300" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.228.415.56.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.058 1.266.069 1.646.069 4.849 0 3.205-.012 3.584-.069 4.849-.054 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.381-.42.419-.821.679-1.381.896-.423.164-1.058.36-2.227.413-1.266.058-1.646.069-4.849.069-3.204 0-3.584-.012-4.849-.069-1.17-.054-1.805-.249-2.227-.413-.56-.217-.96-.477-1.381-.896-.42-.42-.679-.821-.896-1.381-.164-.422-.36-1.057-.413-2.227-.058-1.266-.069-1.646-.069-4.849 0-3.204.012-3.584.069-4.849.054-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.381.42-.42.821-.679 1.381-.896.423-.166 1.058-.361 2.227-.415 1.266-.058 1.646-.07 4.849-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.902.13 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.058 1.277.261 2.15.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.338 1.384-2.126.297-.763.5-1.636.558-2.913.058-1.28.072-1.688.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.32 1.347 20.651.935 19.86.63c-.763-.297-1.636-.5-2.913-.558C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Tecnoemprender22" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
+            <svg class="w-5 h-5 fill-white/50 group-hover:fill-electric-orange transition-colors duration-300" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="flex justify-center gap-6 md:gap-8 text-[10px] font-headline tracking-[0.3em] uppercase font-bold text-white/40">
         <a class="hover:text-electric-orange transition-colors" href="legal/privacidad.html">Aviso Legal</a>
         <a class="hover:text-electric-orange transition-colors" href="legal/privacidad.html">Privacidad</a>
