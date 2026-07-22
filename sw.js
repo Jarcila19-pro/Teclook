@@ -1,5 +1,5 @@
 // Service Worker para cache offline - TECLOOK
-const CACHE_NAME = 'teclook-v1.3.0';
+const CACHE_NAME = 'teclook-v1.4.0';
 
 function offlineResponse() {
     return new Response('Offline', {
@@ -9,10 +9,6 @@ function offlineResponse() {
 }
 
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/automatizacion.html',
-    '/legal/privacidad.html',
     '/assets/css/styles.min.css',
     '/assets/js/scripts.js',
     '/assets/js/tailwind-config.js',

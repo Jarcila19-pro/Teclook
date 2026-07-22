@@ -9,12 +9,23 @@
 
   <script src="assets/js/scripts.js" defer></script>
 
-  <!-- Service Worker Registration -->
+  <!-- Service Worker Registration + Auto-reload on update -->
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      });
+      navigator.serviceWorker.register('/sw.js').then(function(reg) {
+        reg.addEventListener('updatefound', function() {
+          var newWorker = reg.installing;
+          newWorker.addEventListener('statechange', function() {
+            if (newWorker.state === 'activated' && navigator.serviceWorker.controller) {
+              if (!sessionStorage.getItem('sw-reloaded')) {
+                sessionStorage.setItem('sw-reloaded', '1');
+                location.reload();
+              }
+            }
+          });
+        });
+      }).catch(function() {});
+      setTimeout(function() { sessionStorage.removeItem('sw-reloaded'); }, 5000);
     }
   </script>
 
@@ -77,7 +88,7 @@
         "priceRange": "$$",
         "openingHours": "Mo-Fr 08:00-18:00",
         "sameAs": [
-          "https://www.instagram.com/teclook_/",
+          "https://www.instagram.com/teclook_?igsh=amxyanh3Y2NoZTFw",
           "https://www.youtube.com/@Tecnoemprender22"
         ]
       },
@@ -103,11 +114,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
 
-  <!-- FUENTES — cargadas async para no bloquear render -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" media="print" onload="this.media='all'" />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" media="print" onload="this.media='all'" />
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
   <link rel="icon" href="https://teclook.com.co/assets/img/logoteclook.png" type="image/png" />
@@ -118,6 +127,8 @@
 
   <!-- Estilos propios -->
   <link rel="stylesheet" href="assets/css/styles.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
 
   <!-- PRELOAD imagen hero (mejora LCP) -->
   <link rel="preload" as="image" href="assets/img/fondo-tec.webp" />
@@ -962,7 +973,7 @@
       <div class="flex flex-col items-center md:items-start gap-5">
         <div class="text-2xl md:text-3xl font-black tracking-tighter font-headline" translate="no"><span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span></div>
         <div class="flex items-center gap-3">
-          <a href="https://www.instagram.com/teclook_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
+          <a href="https://www.instagram.com/teclook_?igsh=amxyanh3Y2NoZTFw" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
             <svg class="w-5 h-5 fill-white/50 group-hover:fill-electric-orange transition-colors duration-300" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.228.415.56.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.058 1.266.069 1.646.069 4.849 0 3.205-.012 3.584-.069 4.849-.054 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.381-.42.419-.821.679-1.381.896-.423.164-1.058.36-2.227.413-1.266.058-1.646.069-4.849.069-3.204 0-3.584-.012-4.849-.069-1.17-.054-1.805-.249-2.227-.413-.56-.217-.96-.477-1.381-.896-.42-.42-.679-.821-.896-1.381-.164-.422-.36-1.057-.413-2.227-.058-1.266-.069-1.646-.069-4.849 0-3.204.012-3.584.069-4.849.054-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.381.42-.42.821-.679 1.381-.896.423-.166 1.058-.361 2.227-.415 1.266-.058 1.646-.07 4.849-.07M12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.902.13 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.058 1.277.261 2.15.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.763.297 1.636.5 2.913.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.338 1.384-2.126.297-.763.5-1.636.558-2.913.058-1.28.072-1.688.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.32 1.347 20.651.935 19.86.63c-.763-.297-1.636-.5-2.913-.558C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
           <a href="https://www.youtube.com/@Tecnoemprender22" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="group w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-electric-orange/50 hover:bg-electric-orange/10 transition-all duration-300">
