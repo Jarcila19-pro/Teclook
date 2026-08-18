@@ -8,6 +8,7 @@
 
   function openMobileMenu() {
     mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
     burgerBtn.classList.add('active');
     burgerBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
@@ -15,6 +16,7 @@
 
   function closeMobileMenu() {
     mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
     burgerBtn.classList.remove('active');
     burgerBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -179,6 +181,7 @@ window.addEventListener('keydown', function (e) {
     var mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenu && mobileMenu.classList.contains('open')) {
       mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
       var bb = document.getElementById('burger-btn');
       if (bb) { bb.classList.remove('active'); bb.setAttribute('aria-expanded', 'false'); }
       document.body.style.overflow = '';

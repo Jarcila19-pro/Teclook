@@ -11,7 +11,7 @@
   <!-- Service Worker Registration + Auto-reload on update -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function(reg) {
+      navigator.serviceWorker.register('./sw.js').then(function(reg) {
         reg.addEventListener('updatefound', function() {
           var newWorker = reg.installing;
           newWorker.addEventListener('statechange', function() {
@@ -28,23 +28,20 @@
     }
   </script>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script src="https://unpkg.com/@dotlottie/player-component@2.7.1/dist/dotlottie-player.js"></script>
-
-  <script src="assets/js/tailwind-config.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/@dotlottie/player-component@2.7.1/dist/dotlottie-player.js"></script>
 
   <!-- SEO -->
-  <title>Teclook | Automatización con IA</title>
-  <meta name="description" content="Automatización quirúrgica con IA. Te devolvemos el tiempo. Agentes virtuales, automatización de procesos y consultoría IA por Teclook.">
+  <title>Automatización con IA y Agentes Virtuales | TECLOOK Manizales</title>
+  <meta name="description" content="Automatización quirúrgica con IA en Manizales. Te devolvemos el tiempo. Agentes virtuales, automatización de procesos y consultoría IA por TECLOOK.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://teclook.com.co/automatizacion.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://teclook.com.co/automatizacion.html" />
-  <meta property="og:title" content="Teclook | Automatización con IA" />
-  <meta property="og:description" content="Automatización quirúrgica con IA. Te devolvemos el tiempo." />
+  <meta property="og:title" content="Automatización con IA y Agentes Virtuales | TECLOOK Manizales" />
+  <meta property="og:description" content="Automatización quirúrgica con IA en Manizales. Te devolvemos el tiempo." />
   <meta property="og:image" content="https://teclook.com.co/assets/img/logoteclook.png" />
   <meta property="og:image:alt" content="TECLOOK - Automatización con IA" />
   <meta property="og:image:width" content="1200" />
@@ -55,8 +52,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@teclook_" />
-  <meta name="twitter:title" content="Teclook | Automatización con IA" />
-  <meta name="twitter:description" content="Automatización quirúrgica con IA. Te devolvemos el tiempo." />
+  <meta name="twitter:title" content="Automatización con IA y Agentes Virtuales | TECLOOK Manizales" />
+  <meta name="twitter:description" content="Automatización quirúrgica con IA en Manizales. Te devolvemos el tiempo." />
   <meta name="twitter:image" content="https://teclook.com.co/assets/img/logoteclook.png" />
 
   <!-- Schema.org — LocalBusiness + Service + BreadcrumbList -->
@@ -114,7 +111,11 @@
   <link rel="icon" href="https://teclook.com.co/assets/img/logoteclook.png" type="image/png" />
   <link rel="apple-touch-icon" href="https://teclook.com.co/assets/img/logoteclook.png" />
 
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="https://teclook.com.co/manifest.json" />
+
   <!-- Estilos globales -->
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
   <link rel="stylesheet" href="assets/css/styles.min.css" />
 
   <!-- Estilos específicos de automatizacion -->
@@ -293,6 +294,16 @@
         transform: translateY(0);
       }
    </style>
+
+  <!-- Page fallback: si scripts.js no carga en 4s, muestra la página -->
+  <script>
+    setTimeout(function(){
+      if (document.documentElement.classList.contains('loaded')) return;
+      document.documentElement.classList.add('loaded');
+      var loader = document.getElementById('loader');
+      if (loader) { loader.classList.add('hidden'); }
+    }, 4000);
+  </script>
 </head>
 <body class="bg-surface">
 
@@ -309,7 +320,7 @@
   </div>
 
   <!-- MENÚ MÓVIL -->
-  <div id="mobile-menu" role="dialog" aria-label="Menú principal" aria-modal="true">
+  <div id="mobile-menu" role="dialog" aria-label="Menú principal" aria-modal="true" aria-hidden="true">
     <button class="close-menu-btn" aria-label="Cerrar menú">&#10005;</button>
     <a href="index.html">Soluciones</a>
     <a href="index.html#ecosistema">Ecosistema</a>
@@ -327,7 +338,7 @@
   <nav class="fixed top-0 w-full z-[100] bg-[#0a0e16] border-b border-white/5" role="navigation" aria-label="Navegación principal">
     <div class="flex justify-between items-center px-6 py-2 max-w-7xl mx-auto">
       <a href="index.html" class="text-lg font-black tracking-tighter text-white font-headline flex items-center gap-2" aria-label="Ir al inicio">
-        <img src="https://teclook.com.co/assets/img/logoteclook.png" alt="TECLOOK Logo" width="40" height="40" style="object-fit:contain;" />
+        <img src="assets/img/logoteclook.png" alt="TECLOOK Logo" width="40" height="40" style="object-fit:contain;" />
         <div class="flex items-center" translate="no">
           <span class="text-white">TEC</span><span class="text-electric-orange">LOOK</span>
         </div>

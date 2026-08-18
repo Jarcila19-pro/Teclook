@@ -1,5 +1,5 @@
 // Service Worker para cache offline - TECLOOK
-const CACHE_NAME = 'teclook-v1.4.0';
+const CACHE_NAME = 'teclook-v1.5.0';
 
 function offlineResponse() {
     return new Response('Offline', {
@@ -9,16 +9,15 @@ function offlineResponse() {
 }
 
 const urlsToCache = [
+    '/assets/css/tailwind.css',
     '/assets/css/styles.min.css',
     '/assets/js/scripts.js',
-    '/assets/js/tailwind-config.js',
     '/assets/img/logoteclook.png',
     '/assets/img/fondo-tec.webp',
     '/assets/img/bg-ia.jpg',
     '/assets/img/fondo-auto-procesos-2.png',
     '/assets/img/marketing%20digital.png',
     '/assets/img/Gemini_Generated_Image_545pq4545pq4545p_PhotoGrid.png',
-    '/assets/video/ia.mp4',
     '/assets/animations/hero-robot.json',
     '/manifest.json'
 ];
@@ -60,7 +59,7 @@ self.addEventListener('fetch', event => {
                     caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
                     return response;
                 })
-                .catch(() => caches.match(event.request).then(r => r || caches.match('/index.html')))
+                .catch(() => caches.match(event.request).then(r => r || caches.match(new URL(event.request.url).pathname)))
                 .catch(() => offlineResponse())
         );
         return;
